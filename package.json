@@ -1,0 +1,59 @@
+{
+  "name": "mf-demo",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start:shell": "ng serve shell  -o --port 5000",
+    "start:mfe1": "ng serve mfe1 -o --port 3000",
+    "build:shell": "ng build shell --prod",
+    "build:mfe1": "ng build mfe1 --prod",
+    "serve:dist": "concurrently \"serve dist/shell -l 5000 -s\" \"serve dist/mfe1 -l 3000 -s\" ",
+    "start": "concurrently \"npm run start:shell\" \"npm run start:mfe1\" ",
+    "build": "npm run build:shell && npm run build:mfe1",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "private": true,
+  "resolutions": {
+    "webpack": "5.0.0-rc.6"
+  },
+  "dependencies": {
+    "@angular-architects/module-federation": "^0.9.3",
+    "@angular/animations": "~11.0.0-next.4",
+    "@angular/common": "~11.0.0-next.4",
+    "@angular/compiler": "~11.0.0-next.4",
+    "@angular/core": "~11.0.0-next.4",
+    "@angular/forms": "~11.0.0-next.4",
+    "@angular/platform-browser": "~11.0.0-next.4",
+    "@angular/platform-browser-dynamic": "~11.0.0-next.4",
+    "@angular/router": "~11.0.0-next.4",
+    "@nrwl/workspace": "^10.3.0",
+    "concurrently": "^5.3.0",
+    "rxjs": "~6.6.0",
+    "tslib": "^2.0.0",
+    "zone.js": "~0.10.2"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.1100.0-next.4",
+    "@angular/cli": "~11.0.0-next.4",
+    "@angular/compiler-cli": "~11.0.0-next.4",
+    "@types/jasmine": "~3.5.0",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.11.1",
+    "codelyzer": "^6.0.0",
+    "jasmine-core": "~3.6.0",
+    "jasmine-spec-reporter": "~5.0.0",
+    "karma": "~5.2.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.0.3",
+    "karma-jasmine": "~4.0.0",
+    "karma-jasmine-html-reporter": "^1.5.0",
+    "ngx-build-plus": "^10.1.1",
+    "protractor": "~7.0.0",
+    "serve": "^11.3.2",
+    "ts-node": "~8.3.0",
+    "tslint": "~6.1.0",
+    "typescript": "~4.0.2"
+  }
+}
