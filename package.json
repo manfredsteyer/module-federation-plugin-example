@@ -16,7 +16,7 @@
   },
   "private": true,
   "resolutions": {
-    "webpack": "5.0.0-rc.6"
+    "webpack": "5.0.0"
   },
   "dependencies": {
     "@angular-architects/module-federation": "^0.9.3",

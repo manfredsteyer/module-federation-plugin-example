@@ -8984,10 +8984,10 @@ webpack-subresource-integrity@1.4.1:
   dependencies:
     webpack-sources "^1.3.0"
 
-webpack@4.44.2, webpack@5.0.0-rc.6:
-  version "5.0.0-rc.6"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.0.0-rc.6.tgz#d1ffc28fcd0b75dacbbabf269087f7eb15fe54d1"
-  integrity sha512-UeZzugQFKpfqwv4e908rNnXxHILh/+MhNZtGg3hDrLaGpRaagZpVfu2wyrcbyRFhEGNKjJSb5USUOi/kQbNwqA==
+webpack@4.44.2, webpack@5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.0.0.tgz#c028b2f0c1db2322de1f4a30cc36f6e373d5a26a"
+  integrity sha512-OK+Q9xGgda3idw/DgCf75XsVFxRLPu48qPwygqI3W9ls5sDdKif5Ay4SM/1UVob0w4juJy14Zv9nNv0WeyV0aA==
   dependencies:
     "@types/eslint-scope" "^3.7.0"
     "@types/estree" "^0.0.45"

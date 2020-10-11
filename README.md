@@ -7,5 +7,5 @@ Please note, you **must** use **yarn** during the beta phase of CLI 11 b/c it al
 - Install packages: ``yarn``
 - Start Micro Frontend (remote): ``ng serve mfe1 -o``
 - Start Shell (host): ``ng serve shell -o``
-- Make sure ``mfe1`` is started before ``shell``
-- Use the hyperlink ``flights`` in the ``shell`` to load ``mfe1``
+- Make sure ``mfe1`` is started before ``shell`` is loaded into the browser
+- Use the hyperlink ``flights`` in the ``shell`` to load `mfe1`
