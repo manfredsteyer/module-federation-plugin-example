@@ -11,7 +11,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "ngx-build-plus:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/mfe1",
             "index": "projects/mfe1/src/index.html",
@@ -24,8 +24,7 @@
               "projects/mfe1/src/assets"
             ],
             "styles": [],
-            "scripts": [],
-            "extraWebpackConfig": "projects/mfe1/webpack.config.js"
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -53,22 +52,18 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ],
-              "extraWebpackConfig": "projects/mfe1/webpack.prod.config.js"
+              ]
             }
           }
         },
         "serve": {
-          "builder": "ngx-build-plus:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "mfe1:build",
-            "extraWebpackConfig": "projects/mfe1/webpack.config.js",
-            "port": 3000
+            "browserTarget": "mfe1:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "mfe1:build:production",
-              "extraWebpackConfig": "projects/mfe1/webpack.prod.config.js"
+              "browserTarget": "mfe1:build:production"
             }
           }
         },
@@ -79,7 +74,7 @@
           }
         },
         "test": {
-          "builder": "ngx-build-plus:karma",
+          "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "projects/mfe1/src/test.ts",
             "polyfills": "projects/mfe1/src/polyfills.ts",
@@ -92,8 +87,7 @@
             "styles": [
               "projects/mfe1/src/styles.css"
             ],
-            "scripts": [],
-            "extraWebpackConfig": "projects/mfe1/webpack.config.js"
+            "scripts": []
           }
         },
         "lint": {
@@ -131,7 +125,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "ngx-build-plus:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/shell",
             "index": "projects/shell/src/index.html",
@@ -144,8 +138,7 @@
               "projects/shell/src/assets"
             ],
             "styles": [],
-            "scripts": [],
-            "extraWebpackConfig": "projects/shell/webpack.config.js"
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -173,22 +166,18 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ],
-              "extraWebpackConfig": "projects/shell/webpack.prod.config.js"
+              ]
             }
           }
         },
         "serve": {
-          "builder": "ngx-build-plus:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "shell:build",
-            "extraWebpackConfig": "projects/shell/webpack.config.js",
-            "port": 5000
+            "browserTarget": "shell:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "shell:build:production",
-              "extraWebpackConfig": "projects/shell/webpack.prod.config.js"
+              "browserTarget": "shell:build:production"
             }
           }
         },
@@ -199,7 +188,7 @@
           }
         },
         "test": {
-          "builder": "ngx-build-plus:karma",
+          "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "projects/shell/src/test.ts",
             "polyfills": "projects/shell/src/polyfills.ts",
@@ -210,8 +199,7 @@
               "projects/shell/src/assets"
             ],
             "styles": [],
-            "scripts": [],
-            "extraWebpackConfig": "projects/shell/webpack.config.js"
+            "scripts": []
           }
         },
         "lint": {
