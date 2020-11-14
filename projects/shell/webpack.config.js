@@ -2,7 +2,6 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 
 module.exports = {
   output: {
-    publicPath: "http://localhost:5000/",
     uniqueName: "shell"
   },
   optimization: {
@@ -15,7 +14,11 @@ module.exports = {
         remotes: {
             'mfe1': 'mfe1' 
         },
-        shared: ["@angular/core", "@angular/common", "@angular/router"]
+        shared: {
+          "@angular/core": { singleton: true, strictVersion: true }, 
+          "@angular/common": { singleton: true, strictVersion: true }, 
+          "@angular/router": { singleton: true, strictVersion: true }
+        }
     })
   ],
 };
