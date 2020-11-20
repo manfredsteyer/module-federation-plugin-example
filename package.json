@@ -20,6 +20,7 @@
     "webpack": "^5.0.0"
   },
   "dependencies": {
+    "@angular-architects/module-federation": "^1.2.0-rc.9",
     "@angular/animations": "11.0.0",
     "@angular/common": "11.0.0",
     "@angular/compiler": "11.0.0",
@@ -49,6 +50,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
+    "ng-packagr": "^11.0.0",
     "ngx-build-plus": "^10.1.1",
     "protractor": "~7.0.0",
     "serve": "^11.3.2",
