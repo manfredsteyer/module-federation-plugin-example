@@ -5,11 +5,13 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { FlightsModule } from './flights/flights.module';
 import { APP_ROUTES } from './app.routes';
+import { SharedLibModule } from 'shared-lib';
 
 @NgModule({
   imports: [
     BrowserModule,
     FlightsModule,
+    SharedLibModule,
     RouterModule.forRoot(APP_ROUTES)
   ],
   declarations: [
