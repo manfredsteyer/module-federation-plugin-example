@@ -15,11 +15,10 @@ export const APP_ROUTES: Routes = [
     {
       path: 'flights',
       loadChildren: () => loadRemoteModule({
+          // remoteEntry: 'http://localhost:3000/remoteEntry.js'
           remoteName: 'mfe1',
           exposedModule: './Module',
-          // remoteEntry: 'http://localhost:3000/remoteEntry.js'
         })
-      //loadChildren: () => import('mfe1/Module')
         .then(m => m.FlightsModule)
     },
 
