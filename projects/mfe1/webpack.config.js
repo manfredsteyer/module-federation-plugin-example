@@ -5,7 +5,7 @@ const path = require("path");
 const sharedMappings = new mf.SharedMappings();
 sharedMappings.register(
   path.join(__dirname, '../../tsconfig.json'),
-  [],  
+  ['auth-lib']  
 );
 
 module.exports = {
@@ -31,15 +31,6 @@ module.exports = {
           "@angular/common": { singleton: true, strictVersion: true }, 
           "@angular/router": { singleton: true, strictVersion: true },
 
-<<<<<<< HEAD
-        shared: {
-          "@angular/core": { singleton: true, strictVersion: true }, 
-          "@angular/common": { singleton: true, strictVersion: true }, 
-          "@angular/router": { singleton: true, strictVersion: true }
-        }
-        
-    })
-=======
           // Uncomment for sharing lib of an Angular CLI or Nx workspace
            ...sharedMappings.getDescriptors()
         }
@@ -47,6 +38,5 @@ module.exports = {
     }),
     // Uncomment for sharing lib of an Angular CLI or Nx workspace
     sharedMappings.getPlugin(),
->>>>>>> plugin-demo2
   ],
 };

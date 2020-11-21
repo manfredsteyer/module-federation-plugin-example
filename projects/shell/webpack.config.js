@@ -18,8 +18,6 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      
-     
         
         // For hosts (please adjust)
         remotes: {
