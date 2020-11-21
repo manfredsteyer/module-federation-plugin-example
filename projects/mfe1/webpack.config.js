@@ -1,4 +1,12 @@
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const mf = require("@angular-architects/module-federation/webpack");
+const path = require("path");
+
+const sharedMappings = new mf.SharedMappings();
+sharedMappings.register(
+  path.join(__dirname, '../../tsconfig.json'),
+  [],  
+);
 
 module.exports = {
   output: {
@@ -17,7 +25,13 @@ module.exports = {
         exposes: {
             './Module': './projects/mfe1/src/app/flights/flights.module.ts',
         },        
+        
+        shared: {
+          "@angular/core": { singleton: true, strictVersion: true }, 
+          "@angular/common": { singleton: true, strictVersion: true }, 
+          "@angular/router": { singleton: true, strictVersion: true },
 
+<<<<<<< HEAD
         shared: {
           "@angular/core": { singleton: true, strictVersion: true }, 
           "@angular/common": { singleton: true, strictVersion: true }, 
@@ -25,5 +39,14 @@ module.exports = {
         }
         
     })
+=======
+          // Uncomment for sharing lib of an Angular CLI or Nx workspace
+           ...sharedMappings.getDescriptors()
+        }
+        
+    }),
+    // Uncomment for sharing lib of an Angular CLI or Nx workspace
+    sharedMappings.getPlugin(),
+>>>>>>> plugin-demo2
   ],
 };
