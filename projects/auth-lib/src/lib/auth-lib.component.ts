@@ -3,11 +3,8 @@ import { AuthLibService } from './auth-lib.service';
 
 @Component({
   selector: 'lib-auth-lib',
-  template: `
-    <p>
-      User: {{user}}
-    </p>
-  `
+  templateUrl: './auth-lib.component.html',
+  styleUrls: ['./auth-lib.component.css']
 })
 export class AuthLibComponent implements OnInit {
 

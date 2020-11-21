@@ -5,35 +5,39 @@ const path = require("path");
 const sharedMappings = new mf.SharedMappings();
 sharedMappings.register(
   path.join(__dirname, '../../tsconfig.json'),
-  ['auth-lib']  
+  ['auth-lib']
 );
 
 module.exports = {
   output: {
-    uniqueName: "shell"
+    uniqueName: "shell",
+    publicPath: "auto"
   },
   optimization: {
-    // Only needed to bypass a temporary bug
     runtimeChunk: false
+  },    
+  resolve: {
+    alias: {
+      ...sharedMappings.getAliases(),
+    }
   },
   plugins: [
     new ModuleFederationPlugin({
-        
-        // For hosts (please adjust)
-        remotes: {
-            // "mfe1": "mfe1@http://localhost:3000/remoteEntry.js",
 
-        },
+      // For hosts (please adjust)
+      remotes: {
+        // "mfe1": "mfe1@http://localhost:3000/remoteEntry.js",
+      },
 
-        shared: {
-          "@angular/core": { singleton: true, strictVersion: true }, 
-          "@angular/common": { singleton: true, strictVersion: true }, 
-          "@angular/router": { singleton: true, strictVersion: true },
+      shared: {
+        "@angular/core": { singleton: true, strictVersion: true, requiredVersion: '12.0.0-rc.1' },
+        "@angular/common": { singleton: true, strictVersion: true, requiredVersion: '12.0.0-rc.1' },
+        "@angular/router": { singleton: true, strictVersion: true, requiredVersion: '12.0.0-rc.1' },
 
-          // Uncomment for sharing lib of an Angular CLI or Nx workspace
-           ...sharedMappings.getDescriptors()
-        }
-        
+        // Uncomment for sharing lib of an Angular CLI or Nx workspace
+        ...sharedMappings.getDescriptors()
+      }
+
     }),
     // Uncomment for sharing lib of an Angular CLI or Nx workspace
     sharedMappings.getPlugin(),
