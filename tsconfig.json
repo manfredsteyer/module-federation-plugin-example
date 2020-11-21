@@ -16,7 +16,6 @@
       "dom"
     ],
     "paths": {
-
       "shared-lib": [
         "projects/shared-lib/src/public-api.ts",
       ],

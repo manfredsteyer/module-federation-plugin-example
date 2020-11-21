@@ -3,7 +3,8 @@ import { AuthLibService } from 'auth-lib';
 
 @Component({
   selector: 'lib-other',
-  template: '<p>USer: {{user}}</p>'
+  template: '<p>User: {{user}}</p>',
+  // styleUrls: ['./other.component.css']
 })
 export class OtherComponent implements OnInit {
 
