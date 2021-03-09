@@ -3,6 +3,7 @@ import { AuthLibService } from './auth-lib.service';
 
 @Component({
   selector: 'lib-auth-lib',
+ // styleUrls: ['./auth-lib.component.css'],
   template: `
     <p>
       User: {{user}}
