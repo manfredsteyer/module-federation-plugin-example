@@ -6,6 +6,8 @@ import { HomeComponent } from './home/home.component';
 import { APP_ROUTES } from './app.routes';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthLibModule } from 'auth-lib';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 // import { SharedLibModule } from 'projects/shared-lib/src/public-api';
 
 @NgModule({
@@ -13,6 +15,8 @@ import { AuthLibModule } from 'auth-lib';
     BrowserModule,
     AuthLibModule,
     // SharedLibModule,
+    HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(APP_ROUTES)
   ],
   declarations: [

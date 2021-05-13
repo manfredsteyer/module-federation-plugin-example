@@ -34,8 +34,8 @@
 </style>
 
 <div id="container">
-    <div>{{user}}</div>
-    <lib-auth-lib></lib-auth-lib>
+    <div>User: {{user}}</div>
+    <!-- <lib-auth-lib></lib-auth-lib> -->
     <!-- <lib-auth-lib></lib-auth-lib>
         <lib-shared-lib></lib-shared-lib>
         <lib-other></lib-other> -->
@@ -50,8 +50,6 @@
         <input type="text" placeholder="To">
     </div>
     <div>
-        <button (click)="search()">Search</button>
-        <button (click)="terms()">Terms...</button>
     </div>
     <div>
         <ng-container #vc></ng-container>

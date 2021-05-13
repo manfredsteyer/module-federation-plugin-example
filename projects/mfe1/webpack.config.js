@@ -31,9 +31,11 @@ module.exports = {
             './Module': './projects/mfe1/src/app/flights/flights.module.ts',
         },        
         shared: {
-          "@angular/core": { singleton: true, strictVersion: true, requiredVersion: '12.0.0-rc.1' }, 
-          "@angular/common": { singleton: true, strictVersion: true, requiredVersion: '12.0.0-rc.1' }, 
-          "@angular/router": { singleton: true, strictVersion: true, requiredVersion: '12.0.0-rc.1' },
+          "@angular/core": { singleton: true, strictVersion: true, requiredVersion: '12.0.0-rc.3' }, 
+          "@angular/common": { singleton: true, strictVersion: true, requiredVersion: '12.0.0-rc.3' }, 
+          "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: '12.0.0-rc.3' }, 
+
+          "@angular/router": { singleton: true, strictVersion: true, requiredVersion: '12.0.0-rc.3' },
 
           // Uncomment for sharing lib of an Angular CLI or Nx workspace
           ...sharedMappings.getDescriptors()

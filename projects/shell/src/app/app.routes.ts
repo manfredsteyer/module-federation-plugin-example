@@ -3,6 +3,8 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
+let URL = 'http://localhost:3000/remoteEntry.js';
+
 export const APP_ROUTES: Routes = [
     {
       path: '',
@@ -15,11 +17,9 @@ export const APP_ROUTES: Routes = [
 
     {
       path: 'flights',
-      // loadChildren: () => import('mfe1/Module').then(m => m.FlightsModule)
       loadChildren: () => {
-        console.debug('loadChildren');
         return loadRemoteModule({
-          // remoteEntry: 'http://localhost:3000/remoteEntry.js',
+          remoteEntry: URL,
           remoteName: 'mfe1',
           exposedModule: './Module'
         })
