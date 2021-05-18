@@ -135,6 +135,7 @@
 				"build": {
 					"builder": "ngx-build-plus:browser",
 					"options": {
+						"commonChunk": false,
 						"outputPath": "dist/shell",
 						"index": "projects/shell/src/index.html",
 						"main": "projects/shell/src/main.ts",
