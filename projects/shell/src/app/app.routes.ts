@@ -36,6 +36,28 @@ export const APP_ROUTES: Routes = [
         exposedModule: './web-components',
         elementName: 'react-element'
       } as WebComponentWrapperOptions
+    },   
+    
+    {
+      path: 'angular1',
+      component: WebComponentWrapper,
+      data: {
+        remoteEntry: 'https://nice-grass-018f7d910.azurestaticapps.net/remoteEntry.js',
+        remoteName: 'angular1',
+        exposedModule: './web-components',
+        elementName: 'angular1-element'
+      } as WebComponentWrapperOptions
+    },    
+
+    {
+      path: 'angular2',
+      component: WebComponentWrapper,
+      data: {
+        remoteEntry: 'https://gray-pond-030798810.azurestaticapps.net//remoteEntry.js',
+        remoteName: 'angular2',
+        exposedModule: './web-components',
+        elementName: 'angular2-element'
+      } as WebComponentWrapperOptions
     },    
 
     {

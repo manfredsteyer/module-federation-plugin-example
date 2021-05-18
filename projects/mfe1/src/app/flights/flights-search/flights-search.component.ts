@@ -9,14 +9,11 @@ import { AuthLibService } from 'auth-lib';
 })
 export class FlightsSearchComponent {
 
-  @ViewChild('vc', { read: ViewContainerRef, static: true })
-  viewContainer: ViewContainerRef;
-
-  user = 'Test';
-
+  user = '';
  
-  constructor(http: HttpClient) {
+  constructor(http: HttpClient, auth: AuthLibService) {
     console.debug('http', http);
+    this.user = auth.user;
   }
 
 }
