@@ -26,7 +26,7 @@ module.exports = {
       
         // For remotes (please adjust)
         name: "mfe1",
-        filename: "remoteEntry.js",
+        filename: "remoteEntry.js",  // 2-3K w/ Meta Data
         exposes: {
             './Module': './projects/mfe1/src/app/flights/flights.module.ts',
         },        
