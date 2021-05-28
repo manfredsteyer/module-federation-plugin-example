@@ -10,29 +10,34 @@ sharedMappings.register(
 
 module.exports = {
   output: {
-    uniqueName: "mfe1"
+    uniqueName: "mfe1",
+    publicPath: "auto"
   },
   optimization: {
-    // Only needed to bypass a temporary bug
     runtimeChunk: false
+  },  
+  resolve: {
+    alias: {
+      ...sharedMappings.getAliases(),
+    }
   },
   plugins: [
     new ModuleFederationPlugin({
       
         // For remotes (please adjust)
         name: "mfe1",
-        filename: "remoteEntry.js",
+        filename: "remoteEntry.js",  // 2-3K w/ Meta Data
         exposes: {
             './Module': './projects/mfe1/src/app/flights/flights.module.ts',
         },        
-        
         shared: {
-          "@angular/core": { singleton: true, strictVersion: true }, 
-          "@angular/common": { singleton: true, strictVersion: true }, 
-          "@angular/router": { singleton: true, strictVersion: true },
-
+          "@angular/core": { singleton: true, strictVersion: true, requiredVersion: '12.0.0' },
+          "@angular/common": { singleton: true, strictVersion: true, requiredVersion: '12.0.0' },
+          "@angular/router": { singleton: true, strictVersion: true, requiredVersion: '12.0.0' },
+          "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: '12.0.0' }, 
+  
           // Uncomment for sharing lib of an Angular CLI or Nx workspace
-           ...sharedMappings.getDescriptors()
+          ...sharedMappings.getDescriptors()
         }
         
     }),

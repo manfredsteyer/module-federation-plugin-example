@@ -5,10 +5,12 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { FlightsModule } from './flights/flights.module';
 import { APP_ROUTES } from './app.routes';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     BrowserModule,
+    HttpClientModule,
     FlightsModule,
     RouterModule.forRoot(APP_ROUTES)
   ],
