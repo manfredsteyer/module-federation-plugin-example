@@ -8,8 +8,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthLibModule } from 'auth-lib';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { WebComponentWrapper } from './utils/web-component-wrapper';
 // import { SharedLibModule } from 'projects/shared-lib/src/public-api';
+import { ModuleFederationToolsModule } from '@angular-architects/module-federation-tools';
 
 @NgModule({
   imports: [
@@ -18,13 +18,13 @@ import { WebComponentWrapper } from './utils/web-component-wrapper';
     // SharedLibModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES),
+    ModuleFederationToolsModule
   ],
   declarations: [
     AppComponent,
     HomeComponent,
     NotFoundComponent,
-    WebComponentWrapper,
   ],
   providers: [],
   bootstrap: [AppComponent]

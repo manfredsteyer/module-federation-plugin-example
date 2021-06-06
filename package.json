@@ -17,9 +17,10 @@
     "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js"
   },
   "private": true,
+
   "dependencies": {
     "@angular-architects/module-federation": "^12.1.1",
-    "@angular-architects/module-federation-tools": "0.0.3",
+    "@angular-architects/module-federation-tools": "0.0.5",
     "@angular/animations": "12.0.0",
     "@angular/common": "12.0.0",
     "@angular/compiler": "12.0.0",
