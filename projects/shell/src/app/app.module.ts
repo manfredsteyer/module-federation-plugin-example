@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 // import { SharedLibModule } from 'projects/shared-lib/src/public-api';
 import { ModuleFederationToolsModule } from '@angular-architects/module-federation-tools';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { ModuleFederationToolsModule } from '@angular-architects/module-federati
     AppComponent,
     HomeComponent,
     NotFoundComponent,
+    DashboardComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

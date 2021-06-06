@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { startsWith, WebComponentWrapper, WebComponentWrapperOptions } from '@angular-architects/module-federation-tools';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 let URL = 'http://localhost:3000/remoteEntry.js';
 
@@ -92,6 +93,11 @@ export const APP_ROUTES: Routes = [
         elementName: 'angular3-element'
       } as WebComponentWrapperOptions
     }, 
+
+    {
+      path: 'dashboard',
+      component: DashboardComponent
+    },
 
     {
       path: '**',
