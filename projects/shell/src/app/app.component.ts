@@ -1,6 +1,6 @@
-import { Component, ViewChild, ViewContainerRef, ɵrenderComponent as renderComponent, Inject, Injector, ComponentFactoryResolver } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { AuthLibService } from 'auth-lib';
-import { HttpClient } from '@angular/common/http';
+import { shareNgZone } from '@angular-architects/module-federation-tools';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +9,9 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent {
   title = 'shell';
 
-  constructor(private service: AuthLibService, http: HttpClient) {
+  constructor(private service: AuthLibService, private ngZone: NgZone) {
+    shareNgZone(ngZone);
     this.service.login('Max', null);
-    console.debug('http', http);
   }
 
 }
