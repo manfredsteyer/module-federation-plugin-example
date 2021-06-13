@@ -86,7 +86,7 @@ export const APP_ROUTES: Routes = [
       path: 'angularjs',
       component: WebComponentWrapper,
       data: {
-        remoteEntry: 'https://calm-mud-0a3ee4a10.azurestaticapps.net//remoteEntry.js',
+        remoteEntry: 'https://calm-mud-0a3ee4a10.azurestaticapps.net/remoteEntry.js',
         remoteName: 'angularjs',
         exposedModule: './web-components',
         elementName: 'angularjs-element'
