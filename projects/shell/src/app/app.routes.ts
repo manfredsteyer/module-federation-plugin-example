@@ -14,7 +14,6 @@ export const APP_ROUTES: Routes = [
       pathMatch: 'full'
     },
 
-
     // Your route here:
 
     {
