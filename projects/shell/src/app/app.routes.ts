@@ -62,6 +62,17 @@ export const APP_ROUTES: Routes = [
     },   
     
     {
+      matcher: startsWith('angular3'),
+      component: WebComponentWrapper,
+      data: {
+        remoteEntry: 'https://gray-river-0b8c23a10.azurestaticapps.net/remoteEntry.js',
+        remoteName: 'angular3',
+        exposedModule: './web-components',
+        elementName: 'angular3-element'
+      } as WebComponentWrapperOptions
+    }, 
+
+    {
       path: 'vue',
       component: WebComponentWrapper,
       data: {
