@@ -1,12 +1,7 @@
-import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { enableProdMode } from '@angular/core';
+import { loadRemoteEntry } from '@angular-architects/module-federation';
 
-if (environment.production) {
-  enableProdMode();
-}
+// fetch('https://my-registry/api/mf')
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
-  
+loadRemoteEntry('http://localhost:3000/remoteEntry.js', 'mfe1')
+	.then(_ => import('./bootstrap'))
+	.catch(err => console.error(err));

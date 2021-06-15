@@ -1,4 +1,5 @@
 import {Component, ViewChild, ViewContainerRef, Inject, Injector, ComponentFactoryResolver, OnInit} from '@angular/core';
+import { AuthLibService } from '@my/auth-lib';
 
 @Component({
   selector: 'app-flights-search',
@@ -6,12 +7,20 @@ import {Component, ViewChild, ViewContainerRef, Inject, Injector, ComponentFacto
 })
 export class FlightsSearchComponent {
 
+  userName: string;
+
   @ViewChild('vc', { read: ViewContainerRef, static: true })
   viewContainer: ViewContainerRef;
 
   constructor(
+    private authLibService: AuthLibService,
     @Inject(Injector) private injector,
-    @Inject(ComponentFactoryResolver) private cfr) { }
+    @Inject(ComponentFactoryResolver) private cfr) {
+
+  
+      this.userName = authLibService.userName;
+
+  }
 
   search(): void {
     alert('Not implemented for this demo!');
