@@ -5,7 +5,7 @@ const path = require("path");
 const share = mf.share;
 const setInferVersion = mf.setInferVersion;
 
-setInferVersion(false);
+setInferVersion(true);
 
 const sharedMappings = new mf.SharedMappings();
 sharedMappings.register(

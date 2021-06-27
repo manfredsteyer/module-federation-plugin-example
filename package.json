@@ -18,8 +18,8 @@
   },
   "private": true,
   "dependencies": {
-    "@angular-architects/module-federation": "^12.2.0-beta.2",
-    "@angular-architects/module-federation-tools": "^12.2.0-beta.2",
+    "@angular-architects/module-federation": "^12.2.0",
+    "@angular-architects/module-federation-tools": "^12.2.0",
     "@angular/animations": "12.0.0",
     "@angular/common": "12.0.0",
     "@angular/compiler": "12.0.0",
