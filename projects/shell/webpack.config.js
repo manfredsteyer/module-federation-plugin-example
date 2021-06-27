@@ -2,14 +2,10 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const mf = require("@angular-architects/module-federation/webpack");
 const path = require("path");
 
-const share = require('./utils/share-utils').share;
-const shareAll = require('./utils/share-utils').shareAll;
+const share = mf.share;
+const setInferVersion = mf.setInferVersion;
 
-const setInferVersion = require('./utils/share-utils').setInferVersion;
-
-// shareUtils.share();
-
-setInferVersion(true);
+setInferVersion(false);
 
 const sharedMappings = new mf.SharedMappings();
 sharedMappings.register(

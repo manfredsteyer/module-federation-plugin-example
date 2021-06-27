@@ -2,10 +2,7 @@ const callsite = require('callsite');
 const path = require('path');
 const fs = require('fs');
 
-
 let inferVersion = false;
-
-
 
 function findPackageJson(folder) {
     while (
@@ -61,7 +58,6 @@ function _findSecondaries(libPath, excludes, acc) {
         acc.push(secondaryLibName);
         _findSecondaries(s, excludes, acc);
     }
-
 }
 
 function findSecondaries(libPath, excludes) {
