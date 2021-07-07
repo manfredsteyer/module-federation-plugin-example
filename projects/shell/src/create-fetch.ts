@@ -2,7 +2,7 @@ import { AbortablePromise } from 'jsdom';
 import { promises } from 'fs';
 import { normalize } from 'path';
 
-const fetch = require('node-fetch');
+// const fetch = require('node-fetch');
 
 export type StringDict = { [key: string]: string };
 
@@ -28,7 +28,7 @@ export function createFetch(mappings: StringDict = {}) {
       return filePromise;
     }
 
-    let read: Promise<Buffer>;
+    let read: Promise<Buffer | string>;
 
     if (path.match(/^http(s)?:\/\//i)) {
       // console.log('http', path);
@@ -37,7 +37,7 @@ export function createFetch(mappings: StringDict = {}) {
     else {
       path = normalize(path);
       // console.log('file', path);
-      read = promises.readFile(path);
+      read = promises.readFile(path)
     }
 
     const promise = read.then((content) => {
