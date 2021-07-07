@@ -2,7 +2,6 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const mf = require("@angular-architects/module-federation/webpack");
 const path = require("path");
 const share = mf.share;
-const ServerSideModuleFederationPlugin = require('server-side-module-federation-plugin');
 
 const sharedMappings = new mf.SharedMappings();
 sharedMappings.register(
@@ -10,13 +9,17 @@ sharedMappings.register(
   [/* mapped paths to share */]);
 
 module.exports = {
+  // optimization: {minimize: false},
+  mode: 'development',
   output: {
     uniqueName: "shell",
     publicPath: "auto",
-    libraryTarget: "commonjs-module",
-    chunkLoading: "async-http-node",
+    // libraryTarget: "commonjs2",
+    // libraryTarget: "commonjs-module",
+    // chunkLoading: "async-http-node",
 
   },
+  // target: 'async-node',
   optimization: {
     runtimeChunk: false
   },   
@@ -26,7 +29,7 @@ module.exports = {
     }
   },
   plugins: [
-    new ServerSideModuleFederationPlugin({
+    new ModuleFederationPlugin({
       
         // For remotes (please adjust)
         // name: "shell",
@@ -34,16 +37,17 @@ module.exports = {
         // exposes: {
         //     './Component': './projects/shell/src/app/app.component.ts',
         // },        
-        
-        library: { type: "commonjs-module" },
+        // remoteType: 'commonjs2',
+        // library: { type: "commonjs-module" },
         // For hosts (please adjust)
-        remotes: {
-            "mfe1": path.resolve(
-              __dirname,
-              '../../dist/mfe1/server/remoteEntry.js'
-            )
-
-        },
+        // remotes: {
+        //     remoteType: 'commonjs2',
+        //     "mfe1": path.resolve(
+        //       __dirname,
+        //       '../../dist/mfe1/server/remoteEntry.js'
+        //     )
+        //     //"mfe1":"mfe1@http://localhost:3000/remoteEntry.js"
+        // },
 
         shared: ({
           "@angular/core": { singleton: true, strictVersion: true, requiredVersion: '^12.0.0' }, 

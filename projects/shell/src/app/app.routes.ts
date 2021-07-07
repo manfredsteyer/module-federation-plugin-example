@@ -2,9 +2,9 @@ import { loadRemoteModule } from '@angular-architects/module-federation';
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { WebComponentWrapper, WebComponentWrapperOptions } from '@angular-architects/module-federation-tools';
+// import { WebComponentWrapper, WebComponentWrapperOptions } from '@angular-architects/module-federation-tools';
 
-const URL = 'http://localhost:3000/remoteEntry.js';
+const URL = 'http://localhost:3001/remoteEntry.js';
 
 export const APP_ROUTES: Routes = [
     {
@@ -15,19 +15,21 @@ export const APP_ROUTES: Routes = [
 
     // Your route here:
 
-    // {
-    //   path: 'flights',
-    //   loadChildren: () => loadRemoteModule({
-    //       remoteEntry: URL,
-    //       remoteName: 'mfe1',
-    //       exposedModule: './Module'
-    //     })
-    //     .then(m => m.FlightsModule) 
-    // },
     {
       path: 'flights',
-      loadChildren: () => import('mfe1/Module').then(m => m.FlightsModule) 
+      loadChildren: () => loadRemoteModule({
+         // remoteEntry: URL,
+          remoteName: 'mfe1',
+          exposedModule: './Module'
+        })
+        .then(m => m.FlightsModule) 
     },
+
+    // {
+    //   path: 'flights',
+    //   loadChildren: () => import('mfe1/Module').then(m => m.FlightsModule) 
+    // },
+
     {
       path: '**',
       component: NotFoundComponent

@@ -1,4 +1,6 @@
-import { Engine } from '@nguniversal/common/clover/server';
+import { Engine, RenderOptions } from '@nguniversal/common/clover/server';
+import { CustomResourceLoader } from '@nguniversal/common/clover/server/src/custom-resource-loader';
+
 import * as express from 'express';
 import { join } from 'path';
 import { format } from 'url';
@@ -20,6 +22,8 @@ app.get('*.*', express.static(DIST, {
 //   res.redirect(301, `/en-US${req.originalUrl}`);
 // });
 
+
+
 const ssrEngine = new Engine();
 app.get('*', (req, res, next) => {
   ssrEngine.render({
@@ -33,7 +37,10 @@ app.get('*', (req, res, next) => {
     headers: req.headers,
   })
     .then(html => res.send(html))
-    .catch(err => next(err));
+    .catch(err => {
+      console.error('error', err);
+      next(err);
+    });
 });
 
 app.listen(PORT, () => {

@@ -61,6 +61,7 @@
     "karma-jasmine-html-reporter": "^1.5.0",
     "ng-packagr": "^12.0.0-rc.0",
     "ngx-build-plus": "^12.1.0-beta.3",
+    "node-fetch": "^2.6.1",
     "protractor": "~7.0.0",
     "serve": "^11.3.2",
     "ts-node": "~8.3.0",

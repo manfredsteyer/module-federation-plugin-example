@@ -2,7 +2,6 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const mf = require("@angular-architects/module-federation/webpack");
 const path = require("path");
 const share = mf.share;
-const ServerSideModuleFederationPlugin = require('server-side-module-federation-plugin');
 
 
 const sharedMappings = new mf.SharedMappings();
@@ -14,10 +13,12 @@ module.exports = {
   output: {
     uniqueName: "mfe1",
     publicPath: "auto",
-    libraryTarget: "commonjs-module",
-    chunkLoading: "async-http-node",
+    // libraryTarget: "commonjs2",
+    // chunkLoading: "async-http-node",
 
   },
+  // target: 'async-node',
+
   optimization: {
     runtimeChunk: false
   },   
@@ -25,31 +26,29 @@ module.exports = {
     alias: {
       ...sharedMappings.getAliases(),
     }
-  },
+  },  
   plugins: [
-    new ServerSideModuleFederationPlugin({
+    new ModuleFederationPlugin({
       
         // For remotes (please adjust)
         name: "mfe1",
         filename: "remoteEntry.js",
-        library: {
-          type: 'commonjs-module'
-        },
         exposes: {
             './Module': './projects/mfe1/src/app/flights/flights.module.ts',
         },        
-        
+        // library: {type: "commonjs2"},
+
         // For hosts (please adjust)
         // remotes: {
         //     "shell": "shell@http://localhost:5000/remoteEntry.js",
 
         // },
 
-        shared: share({
-          "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
-          "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
-          "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
-          "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+        shared: ({
+          "@angular/core": { singleton: true, strictVersion: true, requiredVersion: '^12.0.0' }, 
+          "@angular/common": { singleton: true, strictVersion: true, requiredVersion: '^12.0.0' }, 
+          "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: '^12.0.0' }, 
+          "@angular/router": { singleton: true, strictVersion: true, requiredVersion: '^12.0.0' },
 
           ...sharedMappings.getDescriptors()
         })

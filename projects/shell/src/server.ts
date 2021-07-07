@@ -3,6 +3,9 @@ import * as express from 'express';
 import { join } from 'path';
 import { format } from 'url';
 
+import { CustomResourceLoader } from '@nguniversal/common/clover/server/src/custom-resource-loader';
+import { createFetch } from './create-fetch';
+
 const PORT = 4200;
 const HOST = `localhost:${PORT}`;
 const DIST = join(__dirname, '../browser');
@@ -20,6 +23,13 @@ app.get('*.*', express.static(DIST, {
 //   res.redirect(301, `/en-US${req.originalUrl}`);
 // });
 
+// Without mappings, remotes are loaded via HTTP
+const mappings = {
+  // MFE1
+  'http://localhost:3000/': join(__dirname, '../../mfe1/browser/')
+};
+CustomResourceLoader.prototype.fetch = createFetch(mappings);
+
 const ssrEngine = new Engine();
 app.get('*', (req, res, next) => {
   ssrEngine.render({
@@ -33,7 +43,10 @@ app.get('*', (req, res, next) => {
     headers: req.headers,
   })
     .then(html => res.send(html))
-    .catch(err => next(err));
+    .catch(err => {
+      console.error('error', err);
+      next(err);
+    });
 });
 
 app.listen(PORT, () => {
