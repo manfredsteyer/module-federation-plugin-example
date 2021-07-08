@@ -9,6 +9,7 @@
     ]
   },
   "files": [
-    "src/server.ts"
+    "src/server.ts",
+    "src/app/flights/flights.module.ts"
   ]
 }

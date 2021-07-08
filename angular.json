@@ -123,13 +123,15 @@
           }
         },
         "server": {
-          "builder": "@angular-devkit/build-angular:server",
+          "builder": "ngx-build-plus:server",
           "options": {
             "outputPath": "dist/mfe1/server",
             "main": "projects/mfe1/src/server.ts",
             "tsConfig": "projects/mfe1/tsconfig.server.json",
             "bundleDependencies": false,
-            "optimization": false
+            "optimization": false,
+            "extraWebpackConfig": "projects/mfe1/webpack.prod.config.js"
+
           }
         },
         "prerender": {
@@ -369,8 +371,6 @@
       }
     }
   },
-  "defaultProject": "mfe1",
-  "cli": {
-    "packageManager": "yarn"
-  }
+  "defaultProject": "mfe1"
+ 
 }

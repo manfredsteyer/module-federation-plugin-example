@@ -6,7 +6,7 @@ import { join } from 'path';
 import { format } from 'url';
 
 const PORT = 4200;
-const HOST = `http://localhost:${PORT}`;
+const HOST = `localhost:${PORT}`;
 const DIST = join(__dirname, '../browser');
 
 const app = express();
@@ -25,7 +25,7 @@ app.get('*.*', express.static(DIST, {
 
 // Without mappings, remotes are loaded via HTTP
 const mappings = {
-	// 'http://localhost:3000/': join(__dirname, '..\..\mfe1')
+	//'http://localhost:3000/': join(__dirname, '../../mfe1/browser/')
 };
 
 // Monkey Patching Angular Universal for Module Federation
@@ -45,7 +45,10 @@ app.get('*', (req, res, next) => {
     headers: req.headers,
   })
     .then(html => res.send(html))
-    .catch(err => next(err));
+    .catch(err => {
+      console.error('err', err);
+      next(err);
+    });
 });
 
 app.listen(PORT, () => {

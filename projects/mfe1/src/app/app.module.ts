@@ -12,10 +12,10 @@ import { RendererModule, TransferHttpCacheModule } from '@nguniversal/common/clo
   imports: [
     BrowserModule.withServerTransition({ appId: 'appId' }),
     HttpClientModule,
-    FlightsModule,
-    RouterModule.forRoot(APP_ROUTES),
+    //FlightsModule,
     RendererModule.forRoot(),
-    TransferHttpCacheModule
+    TransferHttpCacheModule,
+    RouterModule.forRoot(APP_ROUTES),
   ],
   declarations: [
     HomeComponent,

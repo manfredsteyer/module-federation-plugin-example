@@ -16,9 +16,9 @@
     "e2e": "ng e2e",
     "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js",
     "prerender": "ng run mfe1:prerender",
-    "build:client-and-server": "ng build mfe1 && ng run mfe1:server",
-    "build:server": "ng run mfe1:server",
-    "serve:ssr": "node dist/mfe1/server/main.js",
+    "build:client-and-server:shell": "ng build shell && ng run shell:server",
+    "build:server:shell": "ng run shell:server",
+    "serve:ssr:shell": "node dist/shell/server/main.js",
     "build:client-and-server:mfe1": "ng build mfe1 && ng run mfe1:server",
     "build:server:mfe1": "ng run mfe1:server",
     "serve:ssr:mfe1": "node dist/mfe1/server/main.js"

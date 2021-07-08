@@ -8,8 +8,10 @@ import { createFetch } from '@angular-architects/module-federation/src/universal
 
 
 const PORT = 3000;
-const HOST = `http://localhost:${PORT}`;
+const HOST = `localhost:${PORT}`;
 const DIST = join(__dirname, '../browser');
+
+console.log('DIST', DIST);
 
 const app = express();
 app.set('views', DIST);
@@ -44,7 +46,11 @@ app.get('*', (req, res, next) => {
     headers: req.headers,
   })
     .then(html => res.send(html))
-    .catch(err => next(err));
+    .catch(err => {
+      console.error('err', err);
+      next(err);
+      
+    });
 });
 
 app.listen(PORT, () => {
