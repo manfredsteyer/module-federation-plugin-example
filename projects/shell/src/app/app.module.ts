@@ -8,16 +8,19 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthLibModule } from 'auth-lib';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RendererModule, TransferHttpCacheModule } from '@nguniversal/common/clover';
 // import { SharedLibModule } from 'projects/shared-lib/src/public-api';
 
 @NgModule({
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'appId' }),
     AuthLibModule,
     // SharedLibModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES),
+    RendererModule.forRoot(),
+    TransferHttpCacheModule
   ],
   declarations: [
     AppComponent,

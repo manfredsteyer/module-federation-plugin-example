@@ -7,5 +7,3 @@ Promise.all([
 .then(() => import('./bootstrap'))
 .catch(err => console.error(err));
 
-
-
