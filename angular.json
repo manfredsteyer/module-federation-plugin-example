@@ -115,7 +115,7 @@
 		  "build": {
 			"builder": "@angular-devkit/build-angular:browser",
 			"options": {
-			  "outputPath": "dist/mfe1",
+			  "outputPath": "dist/mfe1/browser",
 			  "index": "projects/mfe1/src/index.html",
 			  "main": "projects/mfe1/src/main.ts",
 			  "polyfills": "projects/mfe1/src/polyfills.ts",
@@ -196,7 +196,29 @@
 			  ],
 			  "scripts": []
 			}
-		  }
+		  },
+				"server": {
+					"builder": "@angular-devkit/build-angular:server",
+					"options": {
+						"outputPath": "dist/mfe1/server",
+						"main": "projects/mfe1/src/server.ts",
+						"tsConfig": "projects/mfe1/tsconfig.server.json",
+						"bundleDependencies": false,
+						"optimization": false
+					}
+				},
+				"prerender": {
+					"builder": "@nguniversal/builders:static-generator",
+					"configurations": {
+						"production": {
+							"browserTarget": "mfe1:build:production"
+						},
+						"development": {
+							"browserTarget": "mfe1:build:development"
+						}
+					},
+					"defaultConfiguration": "production"
+				}
 		}
 	  }
 	},
