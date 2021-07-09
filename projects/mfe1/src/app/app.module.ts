@@ -6,13 +6,16 @@ import { HomeComponent } from './home/home.component';
 import { FlightsModule } from './flights/flights.module';
 import { APP_ROUTES } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
+import { RendererModule, TransferHttpCacheModule } from '@nguniversal/common/clover';
 
 @NgModule({
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'appId' }),
     HttpClientModule,
     FlightsModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES),
+    RendererModule.forRoot(),
+    TransferHttpCacheModule
   ],
   declarations: [
     HomeComponent,
