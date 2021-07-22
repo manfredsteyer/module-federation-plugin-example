@@ -8,9 +8,11 @@ import { APP_ROUTES } from './app.routes';
 
 @NgModule({
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     FlightsModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES, {
+    initialNavigation: 'enabled'
+})
   ],
   declarations: [
     HomeComponent,

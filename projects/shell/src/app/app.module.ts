@@ -8,8 +8,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   imports: [
-    BrowserModule,
-    RouterModule.forRoot(APP_ROUTES)
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    RouterModule.forRoot(APP_ROUTES, {
+    initialNavigation: 'enabled'
+})
   ],
   declarations: [
     AppComponent,
