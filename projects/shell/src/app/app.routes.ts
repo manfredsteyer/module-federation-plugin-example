@@ -2,7 +2,6 @@ import { loadRemoteModule } from '@angular-architects/module-federation';
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { WebComponentWrapper, WebComponentWrapperOptions } from '@angular-architects/module-federation-tools';
 
 const URL = 'http://localhost:3000/remoteEntry.js';
 
