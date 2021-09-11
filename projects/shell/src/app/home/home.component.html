@@ -1,1 +1,7 @@
 <h1>Welcome!</h1>
+
+<p *ngIf="user$ | async as user">
+    User: {{ user.name }}
+</p>
+
+<button (click)="login()">Login</button>

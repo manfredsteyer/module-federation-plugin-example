@@ -1,6 +1,5 @@
-import { Component, ViewChild, ViewContainerRef, ɵrenderComponent as renderComponent, Inject, Injector, ComponentFactoryResolver } from '@angular/core';
-import { AuthLibService } from 'auth-lib';
-import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +8,11 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent {
   title = 'shell';
 
-  constructor(private service: AuthLibService, http: HttpClient) {
-    this.service.login('Max', null);
-    console.debug('http', http);
+  constructor(private authService: AuthService) {
+  }
+
+  login(): void {
+    this.authService.loginWithRedirect();
   }
 
 }

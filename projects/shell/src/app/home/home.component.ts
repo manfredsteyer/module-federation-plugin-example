@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthLibService } from 'auth-lib';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +7,16 @@ import { AuthLibService } from 'auth-lib';
 })
 export class HomeComponent implements OnInit {
 
+  isAuthenticated$ = this.auth.isAuthenticated$;
+  user$ = this.auth.user$;
+
+  constructor(private auth: AuthService) {}
+
   ngOnInit() {
+  }
+
+  login(): void {
+    this.auth.loginWithRedirect();
   }
 
 }

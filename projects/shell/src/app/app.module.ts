@@ -8,12 +8,18 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthLibModule } from 'auth-lib';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthModule } from '@auth0/auth0-angular';
+
 // import { SharedLibModule } from 'projects/shared-lib/src/public-api';
 
 @NgModule({
   imports: [
     BrowserModule,
     AuthLibModule,
+    AuthModule.forRoot({
+      domain: 'dev-ha-6vf7s.us.auth0.com',
+      clientId: 'pQXuZGn3bfOfHpFd9ch7Wfa4xP4KhKlS'
+    }),
     // SharedLibModule,
     HttpClientModule,
     FormsModule,

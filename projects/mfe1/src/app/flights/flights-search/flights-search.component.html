@@ -35,6 +35,10 @@
 
 <div id="container">
   
+    <div *ngIf="user$ |async as user">
+        User: {{user.name}}
+    </div>
+
     <div>
         <img src="../../../assets/angular.png" width="50">
     </div>
