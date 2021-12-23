@@ -23,9 +23,13 @@ module.exports = {
       ...sharedMappings.getAliases(),
     }
   },
+  experiments: {
+    outputModule: true
+  },  
   plugins: [
     new ModuleFederationPlugin({
-      
+        library: { type: "module" },
+
         // For remotes (please adjust)
         name: "mfe1",
         filename: "remoteEntry.js",  // 2-3K w/ Meta Data
