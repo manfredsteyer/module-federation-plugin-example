@@ -80,6 +80,7 @@
 					},
 					"defaultConfiguration": "development",
 					"options": {
+						"publicHost": "http://localhost:5000",
 						"port": 5000,
 						"extraWebpackConfig": "projects/shell/webpack.config.js"
 					}
@@ -187,6 +188,7 @@
 					},
 					"defaultConfiguration": "development",
 					"options": {
+						"publicHost": "http://localhost:3000",
 						"port": 3000,
 						"extraWebpackConfig": "projects/mfe1/webpack.config.js"
 					}
