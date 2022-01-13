@@ -9,10 +9,26 @@ sharedMappings.register(
   ['auth-lib']
 );
 
+const appPath = './projects/shell';
+
 module.exports = {
+  entry: {
+    main: {
+      import: `${appPath}/src/main.ts`
+    },
+    polyfills: {
+      import: `${appPath}/src/polyfills.ts`,
+      dependOn: 'main'
+    },
+    styles: {
+      import: `${appPath}/src/styles.css`,
+      dependOn: 'main'
+    }
+  },
   output: {
     uniqueName: "shell",
-    publicPath: "auto"
+    publicPath: "auto",
+    // scriptType: 'text/javascript'
   },
   optimization: {
     runtimeChunk: false
@@ -57,7 +73,7 @@ module.exports = {
           singleton: true, 
           strictVersion: true, 
           requiredVersion: 'auto',
-          eager: true,
+          eager: true
         }, 
 
         // Uncomment for sharing lib of an Angular CLI or Nx workspace

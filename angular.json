@@ -31,7 +31,7 @@
 						],
 						"scripts": [],
 						"extraWebpackConfig": "projects/shell/webpack.config.js",
-						"commonChunk": false
+						"commonChunk": true
 					},
 					"configurations": {
 						"production": {
