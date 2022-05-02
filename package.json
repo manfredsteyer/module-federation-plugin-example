@@ -13,7 +13,8 @@
     "build": "npm run build:shell && npm run build:mfe1",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js"
   },
   "private": true,
   "dependencies": {
@@ -27,6 +28,7 @@
     "@angular/platform-browser-dynamic": "^14.0.0-next.15",
     "@angular/router": "^14.0.0-next.15",
     "concurrently": "^5.3.0",
+    "ngx-build-plus": "^14.0.0-beta.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
