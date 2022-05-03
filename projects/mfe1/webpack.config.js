@@ -32,7 +32,7 @@ module.exports = {
         filename: "remoteEntry.js",
         exposes: {
           // Prefered way: expose corse-grained routes
-          './routes': './projects/mfe1/src/app/booking/booking.routes.ts',
+          './routes': './projects/mfe1/src/app/mfe1.routes.ts',
 
           // Technically possible, but not prefered for Micro Frontends:
           // Exposing fine-grained components

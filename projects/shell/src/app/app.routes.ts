@@ -9,23 +9,19 @@ export const APP_ROUTES: Routes = [
       component: HomeComponent,
       pathMatch: 'full'
     },
-
     {
       path: 'booking',
-      loadChildren: () => import('mfe1/routes').then(m => m.BOOKING_ROUTES)
+      loadChildren: () => import('mfe1/routes').then(m => m.MFE1_ROUTES)
     },
-
     {
       path: 'my-tickets',
       loadComponent: () => 
           import('mfe1/Component').then(m => m.MyTicketsComponent)
     },
-
     {
       path: 'programmatic',
       component: ProgrammaticLoadingComponent
     },
-
     {
       path: '**',
       component: NotFoundComponent
