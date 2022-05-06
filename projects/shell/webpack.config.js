@@ -1,3 +1,5 @@
+// projects/shell/webpack.config.js
+
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const mf = require("@angular-architects/module-federation/webpack");
 const path = require("path");
@@ -28,9 +30,9 @@ module.exports = {
     new ModuleFederationPlugin({
         library: { type: "module" },
         
-        remotes: {
-            "mfe1": "http://localhost:3000/remoteEntry.js",
-        },
+        // remotes: {
+        //     "mfe1": "http://localhost:3000/remoteEntry.js",
+        // },
 
         shared: share({
           "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 

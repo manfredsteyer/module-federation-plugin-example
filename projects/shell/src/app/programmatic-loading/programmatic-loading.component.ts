@@ -1,3 +1,6 @@
+// projects/shell/src/app/programmatic-loading/programmatic-loading.component.ts
+
+import { loadRemoteModule } from '@angular-architects/module-federation';
 import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 
 @Component({
@@ -18,7 +21,12 @@ export class ProgrammaticLoadingComponent implements OnInit {
 
   async load(): Promise<void> {
 
-      const m = await import('mfe1/Component');
+      const m = await loadRemoteModule({
+        type: 'module',
+        remoteEntry: 'http://localhost:3000/remoteEntry.js',
+        exposedModule: './Component'
+      });
+      
       const ref = this.viewContainer.createComponent(m.MyTicketsComponent);
       // const compInstance = ref.instance;
   }

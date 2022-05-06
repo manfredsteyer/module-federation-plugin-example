@@ -1,3 +1,5 @@
+// projects/mfe1/webpack.config.js
+
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const mf = require("@angular-architects/module-federation/webpack");
 const path = require("path");

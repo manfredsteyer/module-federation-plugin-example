@@ -1,7 +1,11 @@
+
+// projects/shell/src/app/app.routes.ts
+
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProgrammaticLoadingComponent } from './programmatic-loading/programmatic-loading.component';
+import { loadRemoteModule } from '@angular-architects/module-federation';
 
 export const APP_ROUTES: Routes = [
     {
@@ -11,12 +15,25 @@ export const APP_ROUTES: Routes = [
     },
     {
       path: 'booking',
-      loadChildren: () => import('mfe1/routes').then(m => m.MFE1_ROUTES)
+      loadChildren: () => 
+        loadRemoteModule({
+          type: 'module',
+          remoteEntry: 'http://localhost:3000/remoteEntry.js',
+          exposedModule: './routes'
+        })
+        .then(m => m.MFE1_ROUTES)
+
+        //import('mfe1/routes').then(m => m.MFE1_ROUTES)
     },
     {
       path: 'my-tickets',
       loadComponent: () => 
-          import('mfe1/Component').then(m => m.MyTicketsComponent)
+        loadRemoteModule({
+          type: 'module',
+          remoteEntry: 'http://localhost:3000/remoteEntry.js',
+          exposedModule: './Component'
+        })
+        .then(m => m.MyTicketsComponent)
     },
     {
       path: 'programmatic',
