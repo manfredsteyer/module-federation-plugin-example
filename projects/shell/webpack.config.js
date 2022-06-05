@@ -4,7 +4,7 @@ module.exports = withModuleFederationPlugin({
 
   remotes: {
     // Check this line. Is port 4201 configured?
-    "mfe1": "http://localhost:4201/remoteEntry.js",    
+    // "mfe1": "http://localhost:4201/remoteEntry.js",    
   },
 
   shared: {
