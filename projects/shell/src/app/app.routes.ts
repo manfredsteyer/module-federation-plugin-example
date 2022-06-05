@@ -9,13 +9,12 @@ export const APP_ROUTES: Routes = [
       pathMatch: 'full'
     },
 
-
     // Your route here:
 
-    // {
-    //   path: 'flights',
-    //   loadChildren: () => import('mfe1/Module').then(m => m.FlightsModule)
-    // },
+    {
+      path: 'flights',
+      loadChildren: () => import('mfe1/Module').then(m => m.FlightsModule)
+    },
 
     {
       path: '**',
