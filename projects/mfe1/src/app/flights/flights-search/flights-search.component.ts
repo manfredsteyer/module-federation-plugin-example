@@ -1,4 +1,5 @@
 import {Component, ViewChild, ViewContainerRef, Inject, Injector, ComponentFactoryResolver, OnInit} from '@angular/core';
+import { AuthLibService } from 'auth-lib';
 
 @Component({
   selector: 'app-flights-search',
@@ -6,26 +7,11 @@ import {Component, ViewChild, ViewContainerRef, Inject, Injector, ComponentFacto
 })
 export class FlightsSearchComponent {
 
-  @ViewChild('vc', { read: ViewContainerRef, static: true })
-  viewContainer: ViewContainerRef;
+  user = this.service.user;
 
-  constructor(
-    @Inject(Injector) private injector,
-    @Inject(ComponentFactoryResolver) private cfr) { }
+  constructor(private service: AuthLibService) { }
 
   search(): void {
-    alert('Not implemented for this demo!');
+    alert('Not implemented in this demo!');
   }
-
-  terms(): void {
-    import('../lazy/lazy.component')
-      .then(m => m.LazyComponent)
-      .then(comp => {
-        const factory = this.cfr.resolveComponentFactory(comp);
-        this.viewContainer.createComponent(factory, null, this.injector);
-      });
-
-  }
-
-
 }
