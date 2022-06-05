@@ -1,4 +1,4 @@
-import { Component, ViewChild, ViewContainerRef, ɵrenderComponent as renderComponent, Inject, Injector, ComponentFactoryResolver } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
