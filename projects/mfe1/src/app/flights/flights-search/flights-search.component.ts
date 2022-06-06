@@ -1,5 +1,4 @@
-import { HttpClient } from '@angular/common/http';
-import {Component, ViewChild, ViewContainerRef, Inject, Injector, ComponentFactoryResolver, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import { AuthLibService } from 'auth-lib';
 
 
@@ -8,5 +7,7 @@ import { AuthLibService } from 'auth-lib';
   templateUrl: './flights-search.component.html'
 })
 export class FlightsSearchComponent {
-
+  constructor(private service: AuthLibService) {
+    console.log('User Name', this.service.user);
+  }
 }

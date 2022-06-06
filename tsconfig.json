@@ -17,7 +17,7 @@
     ],
     "paths": {
       "shared-lib": [
-        "projects/shared-lib/src/public-api.ts",
+        "projects/shared-lib/src/public-api.ts"
       ],
       "auth-lib": [
         "projects/auth-lib/src/public-api.ts"

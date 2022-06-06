@@ -11,7 +11,6 @@ export class AppComponent {
 
   constructor(private service: AuthLibService, http: HttpClient) {
     this.service.login('Max', null);
-    console.debug('http', http);
   }
 
 }
