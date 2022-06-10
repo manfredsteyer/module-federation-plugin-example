@@ -11,6 +11,6 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
   providers: [
-    ...importProvidersFrom(RouterModule.forRoot(MFE1_ROUTES))
+    importProvidersFrom(RouterModule.forRoot(MFE1_ROUTES))
   ]
 });

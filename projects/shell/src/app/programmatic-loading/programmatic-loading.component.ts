@@ -23,7 +23,7 @@ export class ProgrammaticLoadingComponent implements OnInit {
 
       const m = await loadRemoteModule({
         type: 'module',
-        remoteEntry: 'http://localhost:3000/remoteEntry.js',
+        remoteEntry: 'http://localhost:4201/remoteEntry.js',
         exposedModule: './Component'
       });
       

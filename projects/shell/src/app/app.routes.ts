@@ -1,4 +1,3 @@
-
 // projects/shell/src/app/app.routes.ts
 
 import { Routes } from '@angular/router';
@@ -18,7 +17,7 @@ export const APP_ROUTES: Routes = [
       loadChildren: () => 
         loadRemoteModule({
           type: 'module',
-          remoteEntry: 'http://localhost:3000/remoteEntry.js',
+          remoteEntry: 'http://localhost:4201/remoteEntry.js',
           exposedModule: './routes'
         })
         .then(m => m.MFE1_ROUTES)
@@ -30,7 +29,7 @@ export const APP_ROUTES: Routes = [
       loadComponent: () => 
         loadRemoteModule({
           type: 'module',
-          remoteEntry: 'http://localhost:3000/remoteEntry.js',
+          remoteEntry: 'http://localhost:4201/remoteEntry.js',
           exposedModule: './Component'
         })
         .then(m => m.MyTicketsComponent)
