@@ -1,12 +1,6 @@
-import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { enableProdMode } from '@angular/core';
+import { initFederation } from '@angular-architects/native-federation';
 
-if (environment.production) {
-  enableProdMode();
-}
-
-platformBrowserDynamic().bootstrapModule(AppModule)
+initFederation('/assets/federation.manifest.json')
+  .catch(err => console.error(err))
+  .then(_ => import('./bootstrap'))
   .catch(err => console.error(err));
-  

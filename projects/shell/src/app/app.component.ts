@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'auth';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'shell';
+
+  constructor(authService: AuthService) {
+    authService.userName = 'Jane Doe';
+  }
 }
 

@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import { AuthService } from 'auth';
 
 @Component({
   selector: 'app-flights-search',
@@ -6,6 +7,10 @@ import {Component} from '@angular/core';
   styleUrls: ['./flights-search.component.css']
 })
 export class FlightsSearchComponent {
+
+  constructor(authService: AuthService) {
+    console.log('userName', authService.userName);
+  }
 
   search(): void {
     alert('Not implemented for this demo!');
