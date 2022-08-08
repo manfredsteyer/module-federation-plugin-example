@@ -1,6 +1,6 @@
-const { shareAll, withModuleFederationPlugin } = require('@angular-architects/module-federation/webpack');
+const { shareAll, withNativeFederation } = require('@angular-architects/native-federation/config');
 
-module.exports = withModuleFederationPlugin({
+module.exports = withNativeFederation({
 
   name: 'mfe1',
 

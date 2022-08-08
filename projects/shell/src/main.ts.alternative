@@ -1,6 +1,11 @@
 import { initFederation } from '@angular-architects/native-federation';
 
-initFederation('/assets/federation.manifest.json')
+// As an alternative, you can you directly pass the 
+// manifest to initFederation
+
+initFederation({
+  mfe1: 'http://localhost:3000/remoteEntry.js'
+})
   .catch(err => console.error(err))
   .then(_ => import('./bootstrap'))
   .catch(err => console.error(err));

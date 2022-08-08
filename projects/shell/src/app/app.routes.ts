@@ -1,4 +1,4 @@
-import { loadRemoteModule } from '@angular-architects/module-federation';
+import { loadRemoteModule } from '@angular-architects/native-federation';
 import {
   WebComponentWrapper,
   WebComponentWrapperOptions,
@@ -22,23 +22,24 @@ export const APP_ROUTES: Routes = [
     path: 'flights',
     loadChildren: () =>
       loadRemoteModule({
-        type: 'manifest',
         remoteName: 'mfe1',
         exposedModule: './Module',
       }).then((m) => m.FlightsModule),
   },
-  {
-    path: 'react',
-    component: WebComponentWrapper,
-    data: {
-      type: 'script',
-      remoteEntry:
-        'https://witty-wave-0a695f710.azurestaticapps.net/remoteEntry.js',
-      remoteName: 'react',
-      exposedModule: './web-components',
-      elementName: 'react-element',
-    } as WebComponentWrapperOptions,
-  },
+
+  // We remove this, b/c the target here is still module federation
+  // {
+  //   path: 'react',
+  //   component: WebComponentWrapper,
+  //   data: {
+  //     type: 'script',
+  //     remoteEntry:
+  //       'https://witty-wave-0a695f710.azurestaticapps.net/remoteEntry.js',
+  //     remoteName: 'react',
+  //     exposedModule: './web-components',
+  //     elementName: 'react-element',
+  //   } as WebComponentWrapperOptions,
+  // },
 
   {
     path: '**',
