@@ -1,9 +1,8 @@
 import { environment } from './environments/environment';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { enableProdMode, importProvidersFrom } from '@angular/core';
+import { enableProdMode } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
-import { RouterModule } from '@angular/router';
+import { provideRouter } from '@angular/router';
 import { APP_ROUTES } from './app/app.routes';
 
 if (environment.production) {
@@ -12,7 +11,7 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
   providers: [
-    ...importProvidersFrom(RouterModule.forRoot(APP_ROUTES))
+    provideRouter(APP_ROUTES)
   ]
 });
   
