@@ -26,7 +26,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-architects/native-federation": "^0.0.5",
+    "@angular-architects/native-federation": "^0.9.0",
     "@angular-devkit/architect": "^0.1401.1",
     "@angular-devkit/build-angular": "14.1.1",
     "@angular/cli": "14.1.1",

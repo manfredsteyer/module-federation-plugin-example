@@ -9,5 +9,5 @@ cd module-federation-plugin-example
 
 npm i
 npm run build
-npm run start
+npm start
 ```
