@@ -3,13 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "npm run start:shell",
-    "start:shell": "ng serve shell  -o --port 5000",
-    "start:mfe1": "ng serve mfe1 -o --port 3000",
-    "start:all": "concurrently \"npm run start:shell\" \"npm run start:mfe1\" ",
-    "build:shell": "ng build shell --prod",
-    "build:mfe1": "ng build mfe1 --prod",
-    "serve:dist": "concurrently \"serve dist/shell -l 5000 -s\" \"serve dist/mfe1 -l 3000 -s\" ",
+    "build:shell": "ng build shell",
+    "build:mfe1": "ng build mfe1",
+    "start": "concurrently \"serve dist/shell -l 3000 -s\" \"serve dist/mfe1 -l 3001  --cors -s\" ",
     "build": "npm run build:shell && npm run build:mfe1",
     "test": "ng test",
     "lint": "ng lint",
@@ -26,7 +22,6 @@
     "@angular/platform-browser-dynamic": "14.1.1",
     "@angular/router": "14.1.1",
     "@nrwl/workspace": "^10.3.0",
-    "concurrently": "^5.3.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
@@ -52,6 +47,7 @@
     "serve": "^11.3.2",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
-    "typescript": "~4.7.3"
+    "typescript": "~4.7.3",
+    "concurrently": "^5.3.0"
   }
 }
