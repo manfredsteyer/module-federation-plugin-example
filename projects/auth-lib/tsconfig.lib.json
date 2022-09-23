@@ -21,5 +21,9 @@
   "exclude": [
     "src/test.ts",
     "**/*.spec.ts"
+  ],  
+  "files": [
+    "projects/shared-lib/src/public-api.ts",
+    "projects/auth-lib/src/public-api.ts"
   ]
 }

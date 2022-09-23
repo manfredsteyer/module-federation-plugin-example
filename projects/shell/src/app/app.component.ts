@@ -1,5 +1,5 @@
-import { Component, ViewChild, ViewContainerRef, ɵrenderComponent as renderComponent, Inject, Injector, ComponentFactoryResolver } from '@angular/core';
-import { AuthLibService } from 'auth-lib';
+import { Component } from '@angular/core';
+import { AuthLibService } from '../../../auth-lib/src/lib/auth-lib.service';
 import { HttpClient } from '@angular/common/http';
 
 @Component({

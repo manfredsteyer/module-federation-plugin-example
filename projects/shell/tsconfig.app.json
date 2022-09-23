@@ -7,9 +7,13 @@
   },
   "files": [
     "src/main.ts",
-    "src/polyfills.ts"
+    "src/polyfills.ts",
+    "../auth-lib/src/public-api.ts",
+    "../shared-lib/src/public-api.ts"
   ],
   "include": [
-    "src/**/*.d.ts"
+    "src/**/*.d.ts",
+    "projects/shared-lib/src/public-api.ts",
+    "projects/auth-lib/src/public-api.ts"
   ]
 }

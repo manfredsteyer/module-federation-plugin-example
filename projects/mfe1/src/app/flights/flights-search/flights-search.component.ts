@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import { AuthLibService } from 'auth-lib';
+import { AuthLibService } from './../../../../../auth-lib/src/lib/auth-lib.service';
 
 
 @Component({
