@@ -14,7 +14,8 @@ export const APP_ROUTES: Routes = [
     // Your route here:
     {
       path: 'flights',
-      loadChildren: () => loadRemoteModule({
+      loadChildren: () => 
+      loadRemoteModule({
           remoteName: 'mfe1',
           exposedModule: './Module'
         }).then(m => m.FlightsModule)
