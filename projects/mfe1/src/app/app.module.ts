@@ -9,10 +9,12 @@ import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     HttpClientModule,
     FlightsModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES, {
+    initialNavigation: 'enabledBlocking'
+})
   ],
   declarations: [
     HomeComponent,
