@@ -8,21 +8,25 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthLibModule } from 'auth-lib';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MfeProxyComponent } from './mfe-proxy/mfe-proxy.component';
 // import { SharedLibModule } from 'projects/shared-lib/src/public-api';
 
 @NgModule({
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AuthLibModule,
     // SharedLibModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES, {
+    initialNavigation: 'enabledBlocking'
+})
   ],
   declarations: [
     AppComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    MfeProxyComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
