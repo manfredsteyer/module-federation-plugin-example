@@ -10,15 +10,11 @@ export const APP_ROUTES: Routes = [
       pathMatch: 'full'
     },
 
-
     // Your route here:
     {
       path: 'flights',
       loadChildren: () =>  
-        loadRemoteModule({
-            remoteName: 'mfe1',
-            exposedModule: './Module'
-          }).then(m => m.FlightsModule)
+        loadRemoteModule('mfe1', './Module').then(m => m.FlightsModule)
           
       // loadChildren: () =>  
       //   import('mfe1/Module').then(m => m.FlightsModule)

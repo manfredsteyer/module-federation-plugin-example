@@ -6,6 +6,8 @@ console.log('shareAll',
 
 module.exports = withNativeFederation({
 
+  // mfe1 ---> http://...
+
   shared: {
     ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
   },
