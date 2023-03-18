@@ -11,10 +11,10 @@ import { SharedLibModule } from 'shared-lib';
     CommonModule,
     AuthLibModule,
     SharedLibModule,
-    RouterModule.forChild(FLIGHTS_ROUTES)
+    RouterModule.forChild(FLIGHTS_ROUTES),
+    FlightsSearchComponent
   ],
   declarations: [
-    FlightsSearchComponent
   ]
 })
 export class FlightsModule { }

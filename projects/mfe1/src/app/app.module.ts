@@ -6,23 +6,22 @@ import { HomeComponent } from './home/home.component';
 import { FlightsModule } from './flights/flights.module';
 import { APP_ROUTES } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
+import { TransferHttpCacheModule } from '@nguniversal/common';
+import { TransferState } from '@angular/platform-browser';
+
 
 @NgModule({
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule.withServerTransition({ appId: 'mfe1' }),
     HttpClientModule,
     FlightsModule,
+    TransferHttpCacheModule,
     RouterModule.forRoot(APP_ROUTES, {
-    initialNavigation: 'enabledBlocking'
-})
+      initialNavigation: 'enabledBlocking',
+    }),
   ],
-  declarations: [
-    HomeComponent,
-    AppComponent,
-  ],
+  declarations: [HomeComponent, AppComponent],
   providers: [],
-  bootstrap: [
-      AppComponent
-  ]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

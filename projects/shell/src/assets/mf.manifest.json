@@ -1,3 +1,7 @@
 {
-	"mfe1": "http://localhost:3000/remoteEntry.js"
+	"mfe1": "http://localhost:3000/remoteEntry.js",
+	"react": { 
+		"remoteEntry": "https://witty-wave-0a695f710.azurestaticapps.net/remoteEntry.js",
+		"type": "script"
+	}
 }

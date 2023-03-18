@@ -8,16 +8,20 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthLibModule } from 'auth-lib';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MfeProxyComponent } from './mfe-proxy/mfe-proxy.component';
+import { SsrProxyComponent } from './ssr-proxy/ssr-proxy.component';
 // import { SharedLibModule } from 'projects/shared-lib/src/public-api';
+import {TransferHttpCacheModule} from '@nguniversal/common';
+import { IslandComponent } from './island/island.component';
 
 @NgModule({
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
+
     AuthLibModule,
     // SharedLibModule,
     HttpClientModule,
     FormsModule,
+    TransferHttpCacheModule,
     RouterModule.forRoot(APP_ROUTES, {
     initialNavigation: 'enabledBlocking'
 })
@@ -26,7 +30,8 @@ import { MfeProxyComponent } from './mfe-proxy/mfe-proxy.component';
     AppComponent,
     HomeComponent,
     NotFoundComponent,
-    MfeProxyComponent
+    SsrProxyComponent,
+    IslandComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

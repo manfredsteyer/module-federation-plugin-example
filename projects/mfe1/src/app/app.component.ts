@@ -8,6 +8,5 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent {
   
   constructor(http: HttpClient) {
-    console.debug('http', http);
   }
 }
