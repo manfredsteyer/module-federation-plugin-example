@@ -12,12 +12,14 @@ import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AuthLibModule,
     // SharedLibModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES, {
+    initialNavigation: 'enabledBlocking'
+})
   ],
   declarations: [
     AppComponent,

@@ -10,5 +10,5 @@ else {
 }
 loadManifest(url)
   .catch(err => console.error(err))
-  .then(_ => import('./bootstrap'))
+  .then(_ => import('./_server'))
   .catch(err => console.error(err));
