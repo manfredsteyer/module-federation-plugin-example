@@ -6,14 +6,17 @@
     "start": "npm run start:shell",
     "start:shell": "ng serve shell  -o --port 5000",
     "start:mfe1": "ng serve mfe1 -o --port 3000",
-    "start:all": "concurrently \"npm run start:shell\" \"npm run start:mfe1\" ",
+    "start:mfe2": "ng serve mfe2 -o --port 3020",
+    "start:all": "concurrently \"npm run start:shell\" \"npm run start:mfe1\" \"npm run start:mfe2\" ",
     "build:shell": "ng build shell --prod",
     "build:mfe1": "ng build mfe1 --prod",
-    "serve:dist": "concurrently \"serve dist/shell -l 5000 -s\" \"serve dist/mfe1 -l 3000 -s\" ",
-    "build": "npm run build:shell && npm run build:mfe1",
+    "build:mfe2": "ng build mfe2 --prod",
+    "serve:dist": "concurrently \"serve dist/shell -l 5000 -s\" \"serve dist/mfe1 -l 3000 -s\" \"serve dist/mfe2 -l 3020 -s\" ",
+    "build": "npm run build:shell && npm run build:mfe1 && npm run build:mfe2",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js"
   },
   "private": true,
   "dependencies": {
