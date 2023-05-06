@@ -20,7 +20,7 @@ export const APP_ROUTES: Routes = [
 
   {
     path: 'flights',
-    loadChildren: () =>
+    loadChildren: () => //import('mfe1/Module').then((m) => m.FlightsModule)
       loadRemoteModule({
         remoteName: 'mfe1',
         exposedModule: './Module',
