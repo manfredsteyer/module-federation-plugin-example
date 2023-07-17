@@ -20,12 +20,19 @@ export const APP_ROUTES: Routes = [
 
   {
     path: 'flights',
-    loadChildren: () => //import('mfe1/Module').then((m) => m.FlightsModule)
-      loadRemoteModule({
+    loadChildren: () => import('mfe1/Module')
+      .then((m) => m.FlightsModule)
+    
+  },
+
+  {
+    path: 'flights2',
+    loadChildren: () => loadRemoteModule({
         remoteName: 'mfe1',
         exposedModule: './Module',
       }).then((m) => m.FlightsModule),
-  },
+  }
+
 
   // We remove this, b/c the target here is still module federation
   // {
