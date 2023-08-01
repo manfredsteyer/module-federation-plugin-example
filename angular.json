@@ -17,6 +17,12 @@
 				"build": {
 					"builder": "@angular-architects/native-federation:build",
 					"options": {
+						"target": "shell:esbuild:production"
+					}
+				},
+				"esbuild": {
+					"builder": "@angular-devkit/build-angular:browser-esbuild",
+					"options": {
 						"outputPath": "dist/shell",
 						"index": "projects/shell/src/index.html",
 						"main": "projects/shell/src/main.ts",
@@ -33,6 +39,11 @@
 					},
 					"configurations": {
 						"production": {
+							"optimization": {
+								"styles": {
+									"inlineCritical": false
+								}
+							},
 							"budgets": [
 								{
 									"type": "initial",
@@ -65,13 +76,13 @@
 					"defaultConfiguration": "production"
 				},
 				"serve": {
-					"builder": "@angular-devkit/build-angular:dev-server",
+					"builder": "@angular-architects/native-federation:serve",
 					"configurations": {
 						"production": {
-							"browserTarget": "shell:build:production"
+							"browserTarget": "shell:esbuild:production"
 						},
 						"development": {
-							"browserTarget": "shell:build:development"
+							"browserTarget": "shell:esbuild:development"
 						}
 					},
 					"defaultConfiguration": "development",
@@ -116,6 +127,12 @@
 				"build": {
 					"builder": "@angular-architects/native-federation:build",
 					"options": {
+						"target": "mfe1:esbuild:production"
+					}
+				},
+				"esbuild": {
+					"builder": "@angular-devkit/build-angular:browser-esbuild",
+					"options": {
 						"outputPath": "dist/mfe1",
 						"index": "projects/mfe1/src/index.html",
 						"main": "projects/mfe1/src/main.ts",
@@ -132,6 +149,12 @@
 					},
 					"configurations": {
 						"production": {
+							"buildOptimizer": true,
+							"optimization": {
+								"styles":false,
+								"fonts": false,
+								"scripts": true
+							},
 							"budgets": [
 								{
 									"type": "initial",
@@ -164,17 +187,19 @@
 					"defaultConfiguration": "production"
 				},
 				"serve": {
-					"builder": "@angular-devkit/build-angular:dev-server",
+					"builder": "@angular-architects/native-federation:serve",
 					"configurations": {
 						"production": {
-							"browserTarget": "mfe1:build:production"
+							"browserTarget": "mfe1:esbuild:production"
 						},
 						"development": {
-							"browserTarget": "mfe1:build:development"
+							"browserTarget": "mfe1:esbuild:development"
 						}
 					},
 					"defaultConfiguration": "development",
-					"options": {}
+					"options": {
+						"port": 3001
+					}
 				},
 				"extract-i18n": {
 					"builder": "@angular-devkit/build-angular:extract-i18n",
