@@ -1,17 +1,6 @@
-import { environment } from './environments/environment';
-import { enableProdMode } from '@angular/core';
-import { bootstrapApplication } from '@angular/platform-browser';
-import { AppComponent } from './app/app.component';
-import { provideRouter } from '@angular/router';
-import { APP_ROUTES } from './app/app.routes';
+import { initFederation } from '@angular-architects/native-federation';
 
-if (environment.production) {
-  enableProdMode();
-}
-
-bootstrapApplication(AppComponent, {
-  providers: [
-    provideRouter(APP_ROUTES)
-  ]
-});
-  
+initFederation('/assets/federation.manifest.json')
+  .catch(err => console.error(err))
+  .then(_ => import('./bootstrap'))
+  .catch(err => console.error(err));
