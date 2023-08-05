@@ -1,6 +1,6 @@
-// import { initFederation } from '@angular-architects/native-federation';
+import { initFederation } from '@angular-architects/native-federation';
 
-import { initFederation } from '@softarc/native-federation-runtime';
+// import { initFederation } from '@softarc/native-federation-runtime';
 
 initFederation()
   .catch(err => console.error(err))

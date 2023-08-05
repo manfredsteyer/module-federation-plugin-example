@@ -9,7 +9,7 @@ import { AuthService } from 'auth';
 export class FlightsSearchComponent {
 
   constructor(authService: AuthService) {
-    console.log('userName!!!!!!', authService.userName);
+    console.log('userName!!', authService.userName);
   }
 
   search(): void {

@@ -76,7 +76,15 @@
 					"defaultConfiguration": "production"
 				},
 				"serve": {
-					"builder": "@angular-architects/native-federation:serve",
+					"builder": "@angular-architects/native-federation:build",
+					"options": {
+						"target": "shell:esbuild:development",
+						"rebuildDelay": 0,
+						"dev": true
+					}
+				},
+				"serve-standalone"	: {
+					"builder": "@angular-architects/build-angular:dev-server",
 					"configurations": {
 						"production": {
 							"browserTarget": "shell:esbuild:production"
@@ -187,6 +195,15 @@
 					"defaultConfiguration": "production"
 				},
 				"serve": {
+					"builder": "@angular-architects/native-federation:build",
+					"options": {
+						"target": "mfe1:esbuild:development",
+						"dev": true,
+						"rebuildDelay": 0,
+						"devServerPort": 3001
+					}
+				},
+				"serve-standalone": {
 					"builder": "@angular-architects/native-federation:serve",
 					"configurations": {
 						"production": {

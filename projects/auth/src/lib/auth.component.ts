@@ -2,11 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'lib-auth',
-  template: `
-    <p>
-      auth works!
-    </p>
-  `,
+  templateUrl: 'auth.component.html',
   styles: [
   ]
 })

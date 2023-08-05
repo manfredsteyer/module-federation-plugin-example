@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'shell';
 
   constructor(authService: AuthService) {
-    authService.userName = 'Jane Doe';
+    authService.userName = 'Jane Doe!!!';
   }
 }
 

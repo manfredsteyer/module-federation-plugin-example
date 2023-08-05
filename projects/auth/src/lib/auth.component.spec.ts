@@ -21,3 +21,4 @@ describe('AuthComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
