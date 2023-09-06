@@ -9,5 +9,4 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./not-found.component.css']
 })
 export class NotFoundComponent {
-
 }

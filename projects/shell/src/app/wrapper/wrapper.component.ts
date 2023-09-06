@@ -1,6 +1,7 @@
-import { Component, ElementRef, OnInit, inject } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { loadRemoteModule } from '@softarc/native-federation-runtime';
+import { initWrapperConfig } from './wrapper-config';
 
 @Component({
   selector: 'app-wrapper',
@@ -12,9 +13,13 @@ import { loadRemoteModule } from '@softarc/native-federation-runtime';
 export class WrapperComponent implements OnInit {
   elm = inject(ElementRef);
 
+  @Input() config = initWrapperConfig;
+
   async ngOnInit() {
-    await loadRemoteModule('mfe2', './web-components');
-    const root = document.createElement('mfe2-root');
+    const { exposedModule, remoteName, elementName } = this.config;
+    
+    await loadRemoteModule(remoteName, exposedModule);
+    const root = document.createElement(elementName);
     this.elm.nativeElement.appendChild(root);
   }
 }

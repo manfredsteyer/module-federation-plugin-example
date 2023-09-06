@@ -1,10 +1,12 @@
-import { Routes } from '@angular/router';
+import { Routes, UrlMatcher } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 // Add this import:
 import { loadRemoteModule } from '@angular-architects/native-federation';
 import { WrapperComponent } from './wrapper/wrapper.component';
+import { WrapperConfig } from './wrapper/wrapper-config';
+import { startsWith } from './starts-with';
 
 export const APP_ROUTES: Routes = [
   {
@@ -22,6 +24,25 @@ export const APP_ROUTES: Routes = [
   {
     path: 'passengers',
     component: WrapperComponent,
+    data: {
+      config: {
+        remoteName: 'mfe2',
+        exposedModule: './web-components',
+        elementName: 'mfe2-root',
+      } as WrapperConfig,
+    },
+  },
+
+  {
+    matcher: startsWith('profile'),
+    component: WrapperComponent,
+    data: {
+      config: {
+        remoteName: 'mfe3',
+        exposedModule: './web-components',
+        elementName: 'mfe3-root',
+      } as WrapperConfig,
+    },
   },
 
   {
@@ -32,3 +53,5 @@ export const APP_ROUTES: Routes = [
   // DO NOT insert routes after this one.
   // { path:'**', ...} needs to be the LAST one.
 ];
+
+
