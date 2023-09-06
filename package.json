@@ -10,7 +10,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular-architects/native-federation": "^1.1.1",
+    "@angular-architects/native-federation": "^16.3.0",
     "@angular/animations": "^16.1.0",
     "@angular/common": "^16.1.0",
     "@angular/compiler": "^16.1.0",
@@ -19,6 +19,8 @@
     "@angular/platform-browser": "^16.1.0",
     "@angular/platform-browser-dynamic": "^16.1.0",
     "@angular/router": "^16.1.0",
+    "@softarc/native-federation": "^2.0.0",
+    "@softarc/native-federation-runtime": "^2.0.0",
     "es-module-shims": "^1.5.12",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
@@ -35,6 +37,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "ng-packagr": "^16.0.0",
     "typescript": "~5.1.3"
   }
 }

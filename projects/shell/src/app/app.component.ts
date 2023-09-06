@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { AuthService } from '@demo/auth';
 
 @Component({
   standalone: true,
@@ -11,5 +12,10 @@ import { RouterModule } from '@angular/router';
 })
 export class AppComponent {
   title = 'shell';
+  auth = inject(AuthService);
+
+  constructor() {
+    this.auth.userName = 'Jane Doe';
+  }
 }
 
