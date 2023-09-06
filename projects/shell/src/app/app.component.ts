@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, NgZone, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AuthService } from '@demo/auth';
+import { authInfo } from '@demo/auth';
 
 @Component({
   standalone: true,
@@ -12,10 +12,10 @@ import { AuthService } from '@demo/auth';
 })
 export class AppComponent {
   title = 'shell';
-  auth = inject(AuthService);
 
   constructor() {
-    this.auth.userName = 'Jane Doe';
+    authInfo.userName = 'Jane Doe';
+    globalThis.ngZone = inject(NgZone);
   }
 }
 
