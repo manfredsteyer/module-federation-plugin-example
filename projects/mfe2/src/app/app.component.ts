@@ -13,14 +13,11 @@ export class AppComponent implements OnInit {
 
   constructor() { }
 
-  items = [];
-
   ngOnInit(): void {
     console.log('userName', authInfo.userName);
   }
 
   search(): void {
-    this.items = [1,2,3];
     alert('Not implemented in this demo!');
   }
 

@@ -1,0 +1,22 @@
+.container {
+    border: 2px green dashed;
+    padding: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 200px auto;
+    gap: 30px;
+}
+
+ul {
+    padding:0px;
+}
+
+li {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px 0;
+    list-style: none;
+}

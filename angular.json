@@ -356,6 +356,123 @@
 					"defaultConfiguration": "development"
 				}
 			}
+		},
+		"mfe3": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"standalone": true
+				},
+				"@schematics/angular:directive": {
+					"standalone": true
+				},
+				"@schematics/angular:pipe": {
+					"standalone": true
+				}
+			},
+			"root": "projects/mfe3",
+			"sourceRoot": "projects/mfe3/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "@angular-architects/native-federation:build",
+					"options": {
+						"target": "mfe3:esbuild:production"
+					}
+				},
+				"serve": {
+					"builder": "@angular-architects/native-federation:build",
+					"options": {
+						"target": "mfe3:esbuild:development",
+						"rebuildDelay": 0,
+						"dev": true,
+						"port": 4203
+					}
+				},
+				"extract-i18n": {
+					"builder": "@angular-devkit/build-angular:extract-i18n",
+					"options": {
+						"browserTarget": "mfe3:build"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						],
+						"tsConfig": "projects/mfe3/tsconfig.spec.json",
+						"assets": [
+							"projects/mfe3/src/favicon.ico",
+							"projects/mfe3/src/assets"
+						],
+						"styles": [
+							"projects/mfe3/src/styles.css"
+						],
+						"scripts": []
+					}
+				},
+				"esbuild": {
+					"builder": "@angular-devkit/build-angular:browser-esbuild",
+					"options": {
+						"outputPath": "dist/mfe3",
+						"index": "projects/mfe3/src/index.html",
+						"main": "projects/mfe3/src/main.ts",
+						"polyfills": [
+							"zone.js",
+							"es-module-shims"
+						],
+						"tsConfig": "projects/mfe3/tsconfig.app.json",
+						"assets": [
+							"projects/mfe3/src/favicon.ico",
+							"projects/mfe3/src/assets"
+						],
+						"styles": [
+							"projects/mfe3/src/styles.css"
+						],
+						"scripts": []
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"outputHashing": "all"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve-original": {
+					"builder": "@angular-devkit/build-angular:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "mfe3:build:production"
+						},
+						"development": {
+							"browserTarget": "mfe3:build:development"
+						}
+					},
+					"defaultConfiguration": "development"
+				}
+			}
 		}
 	}
 }
