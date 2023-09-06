@@ -5,6 +5,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 // Add this import:
 import { loadRemoteModule } from '@angular-architects/native-federation';
 import { WrapperComponent } from './wrapper/wrapper.component';
+import { WrapperConfig } from './wrapper/wrapper-config';
 
 export const APP_ROUTES: Routes = [
   {
@@ -22,6 +23,13 @@ export const APP_ROUTES: Routes = [
   {
     path: 'passengers',
     component: WrapperComponent,
+    data: {
+      config: {
+        remoteName: 'mfe2',
+        exposedModule: './web-components',
+        elementName: 'mfe2-root',
+      } as WrapperConfig
+    }
   },
 
   {
