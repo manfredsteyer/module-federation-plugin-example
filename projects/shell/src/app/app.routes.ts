@@ -7,6 +7,7 @@ import { loadRemoteModule } from '@angular-architects/native-federation';
 import { WrapperComponent } from './wrapper/wrapper.component';
 import { WrapperConfig } from './wrapper/wrapper-config';
 import { startsWith } from './starts-with';
+import { IslandDemoComponent } from './island-demo/island-demo.component';
 
 export const APP_ROUTES: Routes = [
   {
@@ -43,6 +44,11 @@ export const APP_ROUTES: Routes = [
         elementName: 'mfe3-root',
       } as WrapperConfig,
     },
+  },
+
+  {
+    path: 'island-demo',
+    component: IslandDemoComponent
   },
 
   {

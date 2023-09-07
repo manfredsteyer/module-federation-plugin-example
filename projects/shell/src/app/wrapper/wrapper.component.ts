@@ -15,11 +15,30 @@ export class WrapperComponent implements OnInit {
 
   @Input() config = initWrapperConfig;
 
+  showPlaceholder = true;
+
   async ngOnInit() {
+    const options: IntersectionObserverInit = {
+      root: null,
+      threshold: 0.75,
+    };
+
+    const io = new IntersectionObserver((e) => {
+      if (e[0].isIntersecting && this.showPlaceholder) {
+        this.loadComponent();
+        this.showPlaceholder = false;
+      }
+    }, options);
+
+    io.observe(this.elm.nativeElement);
+  }
+
+  async loadComponent() {
     const { exposedModule, remoteName, elementName } = this.config;
-    
+
     await loadRemoteModule(remoteName, exposedModule);
     const root = document.createElement(elementName);
     this.elm.nativeElement.appendChild(root);
   }
+
 }
