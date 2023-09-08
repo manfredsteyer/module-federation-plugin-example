@@ -12,8 +12,14 @@
 			"architect": {
 				"build": {
 					"builder": "@angular-architects/native-federation:build",
-					"options": {
-						"target": "shell:esbuild:production"
+					"configurations": {
+						"production": {
+							"target": "shell:esbuild:production"
+						},
+						"development": {
+							"target": "shell:esbuild:development",
+							"dev": true
+						}
 					}
 				},
 				"serve": {
@@ -52,7 +58,7 @@
 				"esbuild": {
 					"builder": "@angular-devkit/build-angular:browser-esbuild",
 					"options": {
-						"outputPath": "dist/shell",
+						"outputPath": "dist/shell/browser",
 						"index": "projects/shell/src/index.html",
 						"main": "projects/shell/src/main.ts",
 						"polyfills": [
@@ -107,7 +113,61 @@
 						}
 					},
 					"defaultConfiguration": "development"
-				}
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/shell/server",
+            "main": "projects/shell/server.ts",
+            "tsConfig": "projects/shell/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@angular-devkit/build-angular:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "shell:build:development",
+              "serverTarget": "shell:server:development"
+            },
+            "production": {
+              "browserTarget": "shell:build:production",
+              "serverTarget": "shell:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@angular-devkit/build-angular:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "shell:build:production",
+              "serverTarget": "shell:server:production"
+            },
+            "development": {
+              "browserTarget": "shell:build:development",
+              "serverTarget": "shell:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
+        }
 			}
 		},
 		"mfe1": {
@@ -260,7 +320,25 @@
 				"build": {
 					"builder": "@angular-architects/native-federation:build",
 					"options": {
-						"target": "mfe2:esbuild:production"
+					},
+					"configurations": {
+						"production": {
+							"target": "mfe2:esbuild:production"
+						},
+						"development": {
+							"target": "mfe2:esbuild:development",
+							"dev": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"watch": {
+					"builder": "@angular-architects/native-federation:build",
+					"options": {
+						"target": "mfe2:esbuild:development",
+						"dev": true,
+						"watch": true,
+						"port": 0
 					}
 				},
 				"serve": {
@@ -299,7 +377,7 @@
 				"esbuild": {
 					"builder": "@angular-devkit/build-angular:browser-esbuild",
 					"options": {
-						"outputPath": "dist/mfe2",
+						"outputPath": "dist/mfe2/browser",
 						"index": "projects/mfe2/src/index.html",
 						"main": "projects/mfe2/src/main.ts",
 						"polyfills": [
@@ -354,7 +432,65 @@
 						}
 					},
 					"defaultConfiguration": "development"
-				}
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/mfe2/server",
+            "main": "projects/mfe2/server.ts",
+            "tsConfig": "projects/mfe2/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@angular-devkit/build-angular:ssr-dev-server",
+		  "options": {
+			"port": 4202
+
+		  },
+          "configurations": {
+            "development": {
+              "browserTarget": "mfe2:build:development",
+              "serverTarget": "mfe2:server:development"
+            },
+            "production": {
+              "browserTarget": "mfe2:build:production",
+              "serverTarget": "mfe2:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@angular-devkit/build-angular:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "mfe2:build:production",
+              "serverTarget": "mfe2:server:production"
+            },
+            "development": {
+              "browserTarget": "mfe2:build:development",
+              "serverTarget": "mfe2:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
+        }
 			}
 		},
 		"mfe3": {

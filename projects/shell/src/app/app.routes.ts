@@ -1,4 +1,4 @@
-import { Routes, UrlMatcher } from '@angular/router';
+import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
@@ -30,6 +30,7 @@ export const APP_ROUTES: Routes = [
         remoteName: 'mfe2',
         exposedModule: './web-components',
         elementName: 'mfe2-root',
+        fragmentUrl: 'http://localhost:4202'
       } as WrapperConfig,
     },
   },

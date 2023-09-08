@@ -17,6 +17,10 @@ module.exports = withNativeFederation({
     'rxjs/fetch',
     'rxjs/testing',
     'rxjs/webSocket',
+    '@angular/platform-server',
+    '@angular/platform-server/init',
+    '@angular/ssr',
+    'express',
     // Add further packages you don't need at runtime
   ]
   

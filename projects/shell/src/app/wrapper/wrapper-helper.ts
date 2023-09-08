@@ -1,5 +1,5 @@
-export function extractFragment(resp: string, tagName: string, id = '') {
-  const startTag = id ? `<${tagName} id="${id}"` : `<${tagName}`;
+export function extractFragment(resp: string, tagName: string, key = '', value = '') {
+  const startTag = (key && value) ? `<${tagName} ${key}="${value}"` : `<${tagName}`;
   const start = resp.indexOf(startTag);
   const end = resp.indexOf('</' + tagName + '>', start);
 

@@ -3,13 +3,15 @@ import { Component, OnInit, inject } from '@angular/core';
 import { authInfo } from '@demo/auth';
 
 @Component({
-  selector: 'app-root',
+  selector: 'mfe2-root',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
+  message = "Select a passenger!"
 
   constructor() { }
 

@@ -1,15 +1,10 @@
 import { createCustomElement } from '@angular/elements';
 import { createApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
-import { NgZone } from '@angular/core';
+import { appConfig } from './app/app.config';
 
 (async () => {
-  const app = await createApplication({
-    providers: [
-      /* your global providers here */
-      globalThis.ngZone ? { provide: NgZone, useValue: globalThis.ngZone } : [],
-    ],
-  });
+  const app = await createApplication(appConfig);
 
   const mfe2Root = createCustomElement(AppComponent, {
     injector: app.injector,
