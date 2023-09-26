@@ -34,6 +34,18 @@ export const APP_ROUTES: Routes = [
   },
 
   {
+    path: 'svelte-mfe',
+    component: WrapperComponent,
+    data: {
+      config: {
+        remoteName: 'svelte-mfe',
+        exposedModule: './web-components',
+        elementName: 'svelte-mfe',
+      } as WrapperConfig,
+    },
+  },
+
+  {
     matcher: startsWith('profile'),
     component: WrapperComponent,
     data: {
