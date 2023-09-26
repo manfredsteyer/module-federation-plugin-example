@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "start:all": "concurrently \"ng serve mfe3\" \"ng serve mfe2\" \"ng serve mfe1\" \"ng serve shell\"",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

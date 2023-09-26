@@ -46,6 +46,19 @@ export const APP_ROUTES: Routes = [
   },
 
   {
+    path: 'react-mfe',
+    component: WrapperComponent,
+    data: {
+      config: {
+        remoteName: 'react-mfe',
+        exposedModule: './web-components',
+        elementName: 'react-mfe',
+      } as WrapperConfig,
+    },
+  },
+
+
+  {
     matcher: startsWith('profile'),
     component: WrapperComponent,
     data: {
