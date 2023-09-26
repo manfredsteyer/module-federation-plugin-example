@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "start:all": "concurrently \"ng serve mfe2\" \"ng serve mfe1\" \"ng serve shell\"",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -28,6 +29,7 @@
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
+    "concurrently": "^8.2.1",
     "@angular-devkit/build-angular": "^16.2.1",
     "@angular/cli": "~16.2.1",
     "@angular/compiler-cli": "^16.2.3",
