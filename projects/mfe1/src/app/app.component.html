@@ -1,15 +1,5 @@
-<div id="container">
-    <div>
-        <img src="../../../assets/angular.png" width="50">
-    </div>
-    <h1>Select a Flight</h1>
-    <div>
-        <input type="text" placeholder="From">
-    </div>
-    <div>
-        <input type="text" placeholder="To">
-    </div>
-    <div>
-        <button (click)="search()">Search</button>
-    </div>
-</div>
+<nav>
+    <a routerLink="flight-search">Flights</a> | <a routerLink="holiday-packages">Holiday Packages</a> 
+</nav>
+
+<router-outlet></router-outlet>

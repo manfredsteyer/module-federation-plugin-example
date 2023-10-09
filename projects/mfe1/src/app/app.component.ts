@@ -1,9 +1,13 @@
 import { Component, OnInit, inject } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { AuthService } from '@demo/auth';
 
 @Component({
   selector: 'app-root',
   standalone: true,
+  imports: [
+    RouterModule
+  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
