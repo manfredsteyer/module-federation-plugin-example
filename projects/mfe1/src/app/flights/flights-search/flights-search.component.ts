@@ -6,7 +6,6 @@ import { AuthLibService } from 'auth-lib';
 @Component({
   selector: 'app-flights-search',
   templateUrl: './flights-search.component.html',
-  styleUrls: [ './flights-search.component.scss' ]
 })
 export class FlightsSearchComponent {
   columnDefs: ColDef[] = [
