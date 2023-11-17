@@ -1,1 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
+/* this doesn't work here, it wont apply any style to the table */
+@import "ag-grid-community/styles/ag-grid.css";
+@import "ag-grid-community/styles/ag-theme-alpine.css";

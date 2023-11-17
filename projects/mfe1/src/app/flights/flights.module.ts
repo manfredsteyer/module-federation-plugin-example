@@ -5,13 +5,15 @@ import { RouterModule } from '@angular/router';
 import { FLIGHTS_ROUTES } from './flights.routes';
 import { AuthLibModule } from 'auth-lib';
 import { SharedLibModule } from 'shared-lib';
+import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
   imports: [
     CommonModule,
     AuthLibModule,
     SharedLibModule,
-    RouterModule.forChild(FLIGHTS_ROUTES)
+    RouterModule.forChild(FLIGHTS_ROUTES),
+    AgGridModule
   ],
   declarations: [
     FlightsSearchComponent
