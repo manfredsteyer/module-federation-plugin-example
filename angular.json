@@ -19,16 +19,16 @@
 				"serve": {
 					"builder": "@angular-architects/native-federation:build",
 					"options": {
-						"target": "shell:esbuild:development",
+						"target": "shell:serve-original:development",
 						"rebuildDelay": 0,
 						"dev": true,
-						"port": 4200
+						"port": 0
 					}
 				},
 				"extract-i18n": {
 					"builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "buildTarget": "shell:build"
+					"options": {
+						"buildTarget": "shell:build"
 					}
 				},
 				"test": {
@@ -50,11 +50,11 @@
 					}
 				},
 				"esbuild": {
-					"builder": "@angular-devkit/build-angular:browser-esbuild",
+					"builder": "@angular-devkit/build-angular:application",
 					"options": {
 						"outputPath": "dist/shell",
 						"index": "projects/shell/src/index.html",
-						"main": "projects/shell/src/main.ts",
+						"browser": "projects/shell/src/main.ts",
 						"polyfills": [
 							"zone.js",
 							"es-module-shims"
@@ -86,9 +86,7 @@
 							"outputHashing": "all"
 						},
 						"development": {
-							"buildOptimizer": false,
 							"optimization": false,
-							"vendorChunk": true,
 							"extractLicenses": false,
 							"sourceMap": true,
 							"namedChunks": true
@@ -99,12 +97,15 @@
 				"serve-original": {
 					"builder": "@angular-devkit/build-angular:dev-server",
 					"configurations": {
-            "production": {
-              "buildTarget": "shell:build:production"
+						"production": {
+							"buildTarget": "shell:esbuild:production"
 						},
-            "development": {
-              "buildTarget": "shell:build:development"
+						"development": {
+							"buildTarget": "shell:esbuild:development"
 						}
+					},
+					"options": {
+						"open": true
 					},
 					"defaultConfiguration": "development"
 				}
@@ -126,16 +127,16 @@
 				"serve": {
 					"builder": "@angular-architects/native-federation:build",
 					"options": {
-						"target": "mfe1:esbuild:development",
+						"target": "mfe1:serve-original:development",
 						"rebuildDelay": 0,
 						"dev": true,
-						"port": 4201
+						"port": 0
 					}
 				},
 				"extract-i18n": {
 					"builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "buildTarget": "mfe1:build"
+					"options": {
+						"buildTarget": "mfe1:build"
 					}
 				},
 				"test": {
@@ -157,11 +158,11 @@
 					}
 				},
 				"esbuild": {
-					"builder": "@angular-devkit/build-angular:browser-esbuild",
+					"builder": "@angular-devkit/build-angular:application",
 					"options": {
 						"outputPath": "dist/mfe1",
 						"index": "projects/mfe1/src/index.html",
-						"main": "projects/mfe1/src/main.ts",
+						"browser": "projects/mfe1/src/main.ts",
 						"polyfills": [
 							"zone.js",
 							"es-module-shims"
@@ -193,9 +194,7 @@
 							"outputHashing": "all"
 						},
 						"development": {
-							"buildOptimizer": false,
 							"optimization": false,
-							"vendorChunk": true,
 							"extractLicenses": false,
 							"sourceMap": true,
 							"namedChunks": true
@@ -206,49 +205,53 @@
 				"serve-original": {
 					"builder": "@angular-devkit/build-angular:dev-server",
 					"configurations": {
-            "production": {
-              "buildTarget": "mfe1:build:production"
+						"production": {
+							"buildTarget": "mfe1:esbuild:production"
 						},
-            "development": {
-              "buildTarget": "mfe1:build:development"
+						"development": {
+							"buildTarget": "mfe1:esbuild:development"
 						}
+					},
+					"options": {
+						"port": 4201,
+						"open": true
 					},
 					"defaultConfiguration": "development"
 				}
 			}
-    },
-    "auth": {
-      "projectType": "library",
-      "root": "projects/auth",
-      "sourceRoot": "projects/auth/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/auth/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/auth/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/auth/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "tsConfig": "projects/auth/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
-          }
-        }
-      }
-    }
+		},
+		"auth": {
+			"projectType": "library",
+			"root": "projects/auth",
+			"sourceRoot": "projects/auth/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/auth/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/auth/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/auth/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"tsConfig": "projects/auth/tsconfig.spec.json",
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						]
+					}
+				}
+			}
+		}
 	}
 }
