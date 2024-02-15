@@ -419,7 +419,7 @@
 						},
 						"development": {
 							"buildTarget": "mfe3:esbuild:development",
-							"port": 4201
+							"port": 4203
 						}
 					},
 					"defaultConfiguration": "development"
