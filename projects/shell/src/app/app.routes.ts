@@ -16,7 +16,10 @@ export const APP_ROUTES: Routes = [
   {
     path: 'flights',
     loadComponent: () =>
-      loadRemoteModule('mfe1', './Component').then((m) => m.AppComponent),
+      loadRemoteModule({
+        remoteEntry: 'http://localhost:4201/remoteEntry.json',
+        exposedModule: './Component'
+      }).then((m) => m.AppComponent),
   },
 
   {
