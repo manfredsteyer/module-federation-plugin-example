@@ -13,22 +13,22 @@
 				"build": {
 					"builder": "@angular-architects/native-federation:build",
 					"options": {
-						"target": "shell:esbuild:production"
+						"target": "shell:esbuild:production",
+						"polyfills": []
 					}
 				},
 				"serve": {
 					"builder": "@angular-architects/native-federation:build",
 					"options": {
-						"target": "shell:esbuild:development",
+						"target": "shell:serve-original:development",
 						"rebuildDelay": 0,
-						"dev": true,
-						"port": 4200
+						"dev": true
 					}
 				},
 				"extract-i18n": {
 					"builder": "@angular-devkit/build-angular:extract-i18n",
 					"options": {
-						"browserTarget": "shell:build"
+						"buildTarget": "shell:build"
 					}
 				},
 				"test": {
@@ -50,11 +50,10 @@
 					}
 				},
 				"esbuild": {
-					"builder": "@angular-devkit/build-angular:browser-esbuild",
+					"builder": "@angular-devkit/build-angular:application",
 					"options": {
 						"outputPath": "dist/shell",
 						"index": "projects/shell/src/index.html",
-						"main": "projects/shell/src/main.ts",
 						"polyfills": [
 							"zone.js",
 							"es-module-shims"
@@ -67,7 +66,8 @@
 						"styles": [
 							"projects/shell/src/styles.css"
 						],
-						"scripts": []
+						"scripts": [],
+						"browser": "projects/shell/src/main.ts"
 					},
 					"configurations": {
 						"production": {
@@ -86,9 +86,7 @@
 							"outputHashing": "all"
 						},
 						"development": {
-							"buildOptimizer": false,
 							"optimization": false,
-							"vendorChunk": true,
 							"extractLicenses": false,
 							"sourceMap": true,
 							"namedChunks": true
@@ -100,10 +98,10 @@
 					"builder": "@angular-devkit/build-angular:dev-server",
 					"configurations": {
 						"production": {
-							"browserTarget": "shell:build:production"
+							"buildTarget": "shell:esbuild:production"
 						},
 						"development": {
-							"browserTarget": "shell:build:development"
+							"buildTarget": "shell:esbuild:development"
 						}
 					},
 					"defaultConfiguration": "development"
@@ -120,22 +118,22 @@
 				"build": {
 					"builder": "@angular-architects/native-federation:build",
 					"options": {
-						"target": "mfe1:esbuild:production"
+						"target": "mfe1:esbuild:production",
+						"polyfills": []
 					}
 				},
 				"serve": {
 					"builder": "@angular-architects/native-federation:build",
 					"options": {
-						"target": "mfe1:esbuild:development",
+						"target": "mfe1:serve-original:development",
 						"rebuildDelay": 0,
-						"dev": true,
-						"port": 4201
+						"dev": true
 					}
 				},
 				"extract-i18n": {
 					"builder": "@angular-devkit/build-angular:extract-i18n",
 					"options": {
-						"browserTarget": "mfe1:build"
+						"buildTarget": "mfe1:build"
 					}
 				},
 				"test": {
@@ -157,11 +155,10 @@
 					}
 				},
 				"esbuild": {
-					"builder": "@angular-devkit/build-angular:browser-esbuild",
+					"builder": "@angular-devkit/build-angular:application",
 					"options": {
 						"outputPath": "dist/mfe1",
 						"index": "projects/mfe1/src/index.html",
-						"main": "projects/mfe1/src/main.ts",
 						"polyfills": [
 							"zone.js",
 							"es-module-shims"
@@ -174,7 +171,8 @@
 						"styles": [
 							"projects/mfe1/src/styles.css"
 						],
-						"scripts": []
+						"scripts": [],
+						"browser": "projects/mfe1/src/main.ts"
 					},
 					"configurations": {
 						"production": {
@@ -193,9 +191,7 @@
 							"outputHashing": "all"
 						},
 						"development": {
-							"buildOptimizer": false,
 							"optimization": false,
-							"vendorChunk": true,
 							"extractLicenses": false,
 							"sourceMap": true,
 							"namedChunks": true
@@ -205,12 +201,15 @@
 				},
 				"serve-original": {
 					"builder": "@angular-devkit/build-angular:dev-server",
+					"options": {
+						"port": 4201
+					},
 					"configurations": {
 						"production": {
-							"browserTarget": "mfe1:build:production"
+							"buildTarget": "mfe1:esbuild:production"
 						},
 						"development": {
-							"browserTarget": "mfe1:build:development"
+							"buildTarget": "mfe1:esbuild:development"
 						}
 					},
 					"defaultConfiguration": "development"
@@ -260,22 +259,22 @@
 				"build": {
 					"builder": "@angular-architects/native-federation:build",
 					"options": {
-						"target": "mfe2:esbuild:production"
+						"target": "mfe2:esbuild:production",
+						"polyfills": []
 					}
 				},
 				"serve": {
 					"builder": "@angular-architects/native-federation:build",
 					"options": {
-						"target": "mfe2:esbuild:development",
+						"target": "mfe2:serve-original:development",
 						"rebuildDelay": 0,
-						"dev": true,
-						"port": 4202
+						"dev": true
 					}
 				},
 				"extract-i18n": {
 					"builder": "@angular-devkit/build-angular:extract-i18n",
 					"options": {
-						"browserTarget": "mfe2:build"
+						"buildTarget": "mfe2:build"
 					}
 				},
 				"test": {
@@ -297,11 +296,10 @@
 					}
 				},
 				"esbuild": {
-					"builder": "@angular-devkit/build-angular:browser-esbuild",
+					"builder": "@angular-devkit/build-angular:application",
 					"options": {
 						"outputPath": "dist/mfe2",
 						"index": "projects/mfe2/src/index.html",
-						"main": "projects/mfe2/src/main.ts",
 						"polyfills": [
 							"zone.js",
 							"es-module-shims"
@@ -314,7 +312,8 @@
 						"styles": [
 							"projects/mfe2/src/styles.css"
 						],
-						"scripts": []
+						"scripts": [],
+						"browser": "projects/mfe2/src/main.ts"
 					},
 					"configurations": {
 						"production": {
@@ -333,9 +332,7 @@
 							"outputHashing": "all"
 						},
 						"development": {
-							"buildOptimizer": false,
 							"optimization": false,
-							"vendorChunk": true,
 							"extractLicenses": false,
 							"sourceMap": true,
 							"namedChunks": true
@@ -345,12 +342,15 @@
 				},
 				"serve-original": {
 					"builder": "@angular-devkit/build-angular:dev-server",
+					"options": {
+						"port": 4202
+					},
 					"configurations": {
 						"production": {
-							"browserTarget": "mfe2:build:production"
+							"buildTarget": "mfe2:esbuild:production"
 						},
 						"development": {
-							"browserTarget": "mfe2:build:development"
+							"buildTarget": "mfe2:esbuild:development"
 						}
 					},
 					"defaultConfiguration": "development"
@@ -377,22 +377,22 @@
 				"build": {
 					"builder": "@angular-architects/native-federation:build",
 					"options": {
-						"target": "mfe3:esbuild:production"
+						"target": "mfe3:esbuild:production",
+						"polyfills": []
 					}
 				},
 				"serve": {
 					"builder": "@angular-architects/native-federation:build",
 					"options": {
-						"target": "mfe3:esbuild:development",
+						"target": "mfe3:serve-original:development",
 						"rebuildDelay": 0,
-						"dev": true,
-						"port": 4203
+						"dev": true
 					}
 				},
 				"extract-i18n": {
 					"builder": "@angular-devkit/build-angular:extract-i18n",
 					"options": {
-						"browserTarget": "mfe3:build"
+						"buildTarget": "mfe3:build"
 					}
 				},
 				"test": {
@@ -414,11 +414,10 @@
 					}
 				},
 				"esbuild": {
-					"builder": "@angular-devkit/build-angular:browser-esbuild",
+					"builder": "@angular-devkit/build-angular:application",
 					"options": {
 						"outputPath": "dist/mfe3",
 						"index": "projects/mfe3/src/index.html",
-						"main": "projects/mfe3/src/main.ts",
 						"polyfills": [
 							"zone.js",
 							"es-module-shims"
@@ -431,7 +430,8 @@
 						"styles": [
 							"projects/mfe3/src/styles.css"
 						],
-						"scripts": []
+						"scripts": [],
+						"browser": "projects/mfe3/src/main.ts"
 					},
 					"configurations": {
 						"production": {
@@ -450,9 +450,7 @@
 							"outputHashing": "all"
 						},
 						"development": {
-							"buildOptimizer": false,
 							"optimization": false,
-							"vendorChunk": true,
 							"extractLicenses": false,
 							"sourceMap": true,
 							"namedChunks": true
@@ -462,12 +460,15 @@
 				},
 				"serve-original": {
 					"builder": "@angular-devkit/build-angular:dev-server",
+					"options": {
+						"port": 4203
+					},
 					"configurations": {
 						"production": {
-							"browserTarget": "mfe3:build:production"
+							"buildTarget": "mfe3:esbuild:production"
 						},
 						"development": {
-							"browserTarget": "mfe3:build:development"
+							"buildTarget": "mfe3:esbuild:development"
 						}
 					},
 					"defaultConfiguration": "development"
